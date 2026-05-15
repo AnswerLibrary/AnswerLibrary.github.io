@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="dark">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <title>About - AnswerLibrary</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={darkMode:'class'}</script>
 </head>
-<body class="bg-slate-50 dark:bg-[#020617] text-slate-800 dark:text-slate-200">
+<body class="bg-slate-50 dark:bg-[#020617] text-slate-800 dark:text-slate-200 min-h-screen">
+    <!-- Header (نفس كود index) -->
     <main class="max-w-3xl mx-auto px-6 py-24">
         <h1 class="text-4xl font-black mb-8">About AnswerLibrary</h1>
-        <div class="prose dark:prose-invert">
-            <p class="text-lg leading-relaxed mb-6">AnswerLibrary is a dedicated platform designed to provide clear, verified, and concise answers to your everyday questions.</p>
-            <p class="text-lg leading-relaxed">Our mission is to simplify information and make knowledge accessible to everyone, everywhere, without the clutter of traditional search results.</p>
-            <a href="index.html" class="inline-block mt-8 text-indigo-600 font-bold hover:underline">← Back to Home</a>
-        </div>
+        <p class="text-lg leading-relaxed mb-6">AnswerLibrary is a platform designed to provide clear, verified, and concise answers to everyday questions.</p>
+        <p class="text-lg leading-relaxed">We believe in making knowledge accessible to everyone without the clutter.</p>
     </main>
+    <!-- Footer (نفس كود index) -->
+    <script>if(localStorage.theme==='dark'||(!('theme' in localStorage)&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark');</script>
 </body>
 </html>
