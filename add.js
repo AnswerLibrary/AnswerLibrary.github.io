@@ -39,7 +39,7 @@
         const words = contentArea.innerText.trim().split(/\s+/).length;
         const time = Math.ceil(words / 200);
         const rTimeElem = document.getElementById('reading-time');
-        if (rTimeElem) rTimeElem.innerText = `${time} ${'min read'}`;
+        if (rTimeElem) rTimeElem.innerText = `${time} min read`;
 
         // --- Scroll Logic (Progress & Back to Top & ScrollSpy) ---
         const progress = document.getElementById('scroll-progress');
@@ -65,11 +65,11 @@
             // ScrollSpy
             headers.forEach(header => {
                 const top = header.offsetTop - 120;
-                const bottom = top + header.offsetHeight + 500; // Large buffer for content
+                const bottom = top + header.offsetHeight + 1000;
                 const tocItem = document.querySelector(`#toc-list a[href="#${header.id}"]`);
                 if (windScroll >= top && windScroll < bottom) {
-                    document.querySelectorAll('#toc-list a').forEach(a => a.classList.remove('text-blue-600', 'dark:text-blue-400', 'font-black'));
-                    if (tocItem) tocItem.classList.add('text-blue-600', 'dark:text-blue-400', 'font-black');
+                    document.querySelectorAll('#toc-list a').forEach(a => a.classList.remove('text-indigo-600', 'dark:text-indigo-400', 'font-black'));
+                    if (tocItem) tocItem.classList.add('text-indigo-600', 'dark:text-indigo-400', 'font-black');
                 }
             });
         });
@@ -88,8 +88,8 @@
                 const li = document.createElement('li');
                 const a = document.createElement('a');
                 a.href = '#' + id;
-                a.className = 'hover:text-blue-600 dark:hover:text-blue-400 transition-all flex items-center gap-3 py-1 group';
-                a.innerHTML = `<span class="w-2 h-2 rounded-full border-2 border-slate-200 dark:border-slate-800 group-hover:border-blue-400 transition-colors"></span><span>${h.innerText}</span>`;
+                a.className = 'hover:text-indigo-600 dark:hover:text-indigo-400 transition-all flex items-center gap-3 py-1 group';
+                a.innerHTML = `<span class="w-2 h-2 rounded-full border-2 border-slate-200 dark:border-slate-800 group-hover:border-indigo-400 transition-colors"></span><span>${h.innerText}</span>`;
                 a.onclick = (e) => {
                     e.preventDefault();
                     window.scrollTo({ top: h.offsetTop - 100, behavior: 'smooth' });
@@ -110,7 +110,7 @@
             });
         }, revealOptions);
 
-        document.querySelectorAll('article, #related-questions a, h1, #ad-slot').forEach(el => {
+        document.querySelectorAll('.reveal').forEach(el => {
             el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
             revealObserver.observe(el);
         });
@@ -156,12 +156,12 @@
                         .slice(0, 4);
 
                     if (related.length > 0) {
-                        let html = `<h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-6 lg:mr-2">${'Suggested for you'}</h4><div class="grid md:grid-cols-2 gap-4">`;
+                        let html = `<h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-6 lg:mr-2">Suggested for you</h4><div class="grid md:grid-cols-2 gap-4">`;
                         related.forEach(q => {
                             html += `
-                                <a href="${q.url}" class="p-6 bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800/50 rounded-3xl hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/10 transition-all flex justify-between items-center group">
-                                    <span class="font-bold text-slate-700 dark:text-slate-300 group-hover:text-blue-600 transition-colors">${q.title}</span>
-                                    <svg class="text-slate-200 dark:text-slate-800 group-hover:text-blue-500 group-hover:translate-x-1 transition-all" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
+                                <a href="${q.url}" class="p-6 bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800/50 rounded-3xl hover:border-indigo-500 hover:shadow-2xl hover:shadow-indigo-500/10 transition-all flex justify-between items-center group">
+                                    <span class="font-bold text-slate-700 dark:text-slate-300 group-hover:text-indigo-600 transition-colors">${q.title}</span>
+                                    <svg class="text-slate-200 dark:text-slate-800 group-hover:text-indigo-500 group-hover:translate-x-1 transition-all" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
                                 </a>
                             `;
                         });
@@ -172,4 +172,3 @@
                 .catch(err => console.error("Could not load related questions:", err));
         }
     });
-    
