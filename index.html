@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnswerLibrary - Quick Answers to Daily Questions</title>
+    <meta name="description" content="Explore our library for clear, concise, and verified answers to common questions.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5' // Indigo 600
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #f8fafc; color: #1e293b; transition: background-color 0.3s; }
+        .dark body { background-color: #020617; color: #f1f5f9; }
+    </style>
+</head>
+<body class="min-h-screen font-sans">
+
+    <!-- Header -->
+    <header class="border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-indigo-600/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                </div>
+                <span class="text-xl font-black text-slate-900 dark:text-white tracking-tight">AnswerLibrary</span>
+            </a>
+            <button onclick="toggleDarkMode()" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center transition-all hover:scale-105">
+                <span class="dark:hidden">🌙</span>
+                <span class="hidden dark:inline">☀️</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 py-20">
+        <!-- Hero Section -->
+        <section class="text-center mb-20">
+            <h1 class="text-5xl md:text-6xl font-black text-slate-900 dark:text-white mb-6">Knowledge at your fingertips</h1>
+            <p class="text-xl text-slate-500 dark:text-slate-400 max-w-lg mx-auto">Your digital archive for clear, concise, and verified answers to common questions.</p>
+        </section>
+
+        <!-- Question Grid -->
+        <section>
+            <h2 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-8">Latest Entries</h2>
+            <div id="questions-list" class="grid md:grid-cols-2 gap-6">
+                <!-- Loading state -->
+                <div class="text-slate-400">Loading library...</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-20 text-center border-t border-slate-200 dark:border-slate-900">
+        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">&copy; 2026 AnswerLibrary. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Toggle Dark Mode
+        function toggleDarkMode() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        // Initialize Theme
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+
+        // Fetch Questions
+        document.addEventListener("DOMContentLoaded", () => {
+            const listContainer = document.getElementById('questions-list');
+            
+            fetch('questions.json')
+                .then(response => response.json())
+                .then(data => {
+                    listContainer.innerHTML = data.map(item => `
+                        <a href="${item.url}" class="group p-8 bg-white dark:bg-slate-900/50 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 hover:border-indigo-500 transition-all shadow-sm hover:shadow-xl hover:shadow-indigo-500/10">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 transition-colors">${item.title}</h3>
+                            <p class="mt-4 text-slate-500 dark:text-slate-400 text-sm leading-relaxed">${item.description}</p>
+                        </a>
+                    `).join('');
+                })
+                .catch(err => {
+                    console.error("Error loading questions:", err);
+                    listContainer.innerHTML = "<p class='text-red-500'>Failed to load questions. Make sure you are running a local server.</p>";
+                });
+        });
+    </script>
+</body>
+</html>
