@@ -1,1 +1,26 @@
-
+[
+  {
+    "title": "What is it like for an expat to live in the United Arab Emirates?",
+    "description": "Discover what it's really like for expats living in the UAE, from tax-free salaries and luxury lifestyles to cultural norms and cost of living insights.",
+    "url": "living-in-uae-expat-guide.html",
+    "category": "Expatriate"
+  },
+  {
+    "title": "How does Emiratization affect foreign workers in the UAE?",
+    "description": "Discover how Emiratization impacts the UAE job market for expats, including private sector quotas, recruitment trends, and opportunities for foreign workers.",
+    "url": "how-emiratization-affects-foreign-workers-uae.html",
+    "category": "Employment"
+  },
+  {
+    "title": "Is the UAE safe for Western expats and tourists?",
+    "description": "Discover why the UAE is ranked among the safest countries for Western expats and tourists. Learn about crime rates, local laws, and essential safety tips.",
+    "url": "is-uae-safe-for-westerners.html",
+    "category": "Safety"
+  },
+  {
+    "title": "What are the main differences between Dubai, Abu Dhabi, and Sharjah?",
+    "description": "Discover the main differences between Dubai, Abu Dhabi, and Sharjah. This guide covers lifestyle, culture, costs, and tourism highlights for the three emirates.",
+    "url": "differences-between-dubai-abu-dhabi-sharjah.html",
+    "category": "Travel"
+  }
+]
