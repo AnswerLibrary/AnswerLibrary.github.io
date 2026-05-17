@@ -177,3 +177,54 @@
                 .catch(err => console.error("Could not load related questions:", err));
         }
     });
+
+// --- Infinite Scroll Logic ---
+let allQuestions = [];
+let displayedCount = 0;
+const step = 6; // Number of items to show per scroll
+const listElement = document.getElementById('questions-list');
+const sentinel = document.getElementById('scroll-sentinel');
+const spinner = document.getElementById('loading-spinner');
+
+function renderQuestions(items) {
+    const html = items.map(q => `
+        <a href="${q.url}" class="group p-8 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500 hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-300">
+            <span class="inline-block px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-lg mb-4 uppercase tracking-widest">${q.category}</span>
+            <h3 class="text-xl font-bold mb-2 group-hover:text-indigo-600 transition-colors">${q.title}</h3>
+            <p class="text-sm opacity-70 line-clamp-2">${q.description}</p>
+        </a>
+    `).join('');
+    listElement.insertAdjacentHTML('beforeend', html);
+}
+
+function loadMore() {
+    if (displayedCount >= allQuestions.length) {
+        spinner.classList.add('hidden');
+        return;
+    }
+    
+    spinner.classList.remove('hidden');
+    const nextBatch = allQuestions.slice(displayedCount, displayedCount + step);
+    renderQuestions(nextBatch);
+    displayedCount += step;
+    spinner.classList.add('hidden');
+}
+
+// Initialize Observer
+if (listElement && sentinel) {
+    fetch('questions.json')
+        .then(r => r.json())
+        .then(data => {
+            allQuestions = data;
+            loadMore(); // Load first batch
+
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    loadMore();
+                }
+            }, { threshold: 0.1 });
+
+            observer.observe(sentinel);
+        })
+        .catch(err => console.error("Error loading questions:", err));
+}
