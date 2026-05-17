@@ -1,5 +1,4 @@
-
-    // --- Utilities ---
+ // --- Utilities ---
     function copyCurrentUrl() {
         navigator.clipboard.writeText(window.location.href);
         showToast("Link copied successfully!");
@@ -140,3 +139,59 @@
                 .catch(err => console.error("Could not load related questions:", err));
         }
     });
+// Dark Mode Toggle
+function toggleDarkMode() {
+    document.documentElement.classList.toggle('dark');
+}
+
+// Scroll Progress & Back to Top Button
+window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('scroll-progress').style.width = scrolled + "%";
+
+    const backToTop = document.getElementById('back-to-top');
+    if (winScroll > 500) {
+        backToTop.classList.remove('opacity-0', 'invisible');
+    } else {
+        backToTop.classList.add('opacity-0', 'invisible');
+    }
+});
+
+document.getElementById('back-to-top').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Mock Data & Infinite Scroll
+const questionsList = document.getElementById('questions-list');
+const spinner = document.getElementById('loading-spinner');
+let page = 1;
+
+async function loadQuestions() {
+    spinner.classList.remove('hidden');
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 800));
+    
+    for (let i = 0; i < 6; i++) {
+        const card = document.createElement('div');
+        card.className = "bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm hover:border-indigo-500 transition-all cursor-pointer group";
+        card.innerHTML = `
+            <h3 class="text-xl font-bold mb-3 group-hover:text-indigo-600">Why does the sky appear blue?</h3>
+            <p class="text-slate-500 text-sm leading-relaxed">Rayleigh scattering causes shorter blue wavelengths to scatter more than longer red ones...</p>
+        `;
+        questionsList.appendChild(card);
+    }
+    
+    spinner.classList.add('hidden');
+}
+
+// Intersection Observer for Infinite Scroll
+const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+        loadQuestions();
+    }
+}, { threshold: 1.0 });
+
+observer.observe(document.getElementById('scroll-sentinel'));
