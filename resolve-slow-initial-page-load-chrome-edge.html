@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to resolve slow initial page load in Chrome and Microsoft Edge? - AnswerLibrary</title>
+    <meta name="description" content="Fix slow initial page loading in Chrome and Edge by disabling hardware acceleration, managing extensions, flushing DNS, and optimizing browser settings.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>tailwind.config={darkMode:'class'}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "QAPage",
+  "mainEntity": {
+    "@type": "Question",
+    "name": "How to resolve slow initial page load in Chrome and Microsoft Edge?",
+    "text": "How to resolve slow initial page load in Chrome and Microsoft Edge?",
+    "answerCount": 1,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Troubleshooting Slow Initial Page Loads in Chrome and Edge\n\nSlow initial page loads in Chromium-based browsers like Google Chrome and Microsoft Edge are often caused by resource management settings, outdated cache, or conflicting extensions. Below are the most effective methods to resolve the issue:\n\n 1. Disable Hardware Acceleration\nHardware acceleration allows the browser to use your GPU, but it can cause delays if the drivers are outdated or incompatible.\n- Chrome: Go to Settings > System > Toggle off Use graphics acceleration when available.\n- Edge: Go to Settings > System and performance > Toggle off Use graphics acceleration when available.\n- Restart your browser to apply changes.\n\n 2. Manage Extensions\nA rogue or heavy extension can delay the browser's startup process.\n- Open chrome://extensions or edge://extensions.\n- Disable all extensions and restart the browser. If the page loads quickly, re-enable them one by one to identify the culprit.\n\n 3. Flush DNS and Reset Network Settings\nSometimes the delay is caused by the system's network configuration.\n- Open Command Prompt as an administrator.\n- Type ipconfig /flushdns and press Enter.\n- Type netsh winsock reset and press Enter.\n- Restart your computer.\n\n 4. Clear Browsing Data\nA bloated cache can slow down the initial handshake between the browser and a website.\n- Press Ctrl + Shift + Del on your keyboard.\n- Set the time range to All time.\n- Check Cookies and other site data and Cached images and files.\n- Click Clear data.\n\n 5. Disable 'Automatically Detect Settings' in Windows\nWindows sometimes pauses the first web request while looking for a proxy server.\n- Search for Proxy Settings in the Windows Start menu.\n- Toggle off Automatically detect settings.\n\n 6. Switch to a Faster DNS\nUsing a public DNS like Google or Cloudflare can speed up the initial connection to websites.\n- Go to Settings > Privacy and security > Security.\n- Enable Use secure DNS and select Google (Public DNS) or Cloudflare (1.1.1.1)."
+    }
+  }
+}</script>
+    <style>
+        .prose h1, .prose h2, .prose h3 { font-weight: 900; tracking: -0.025em; margin-top: 2rem; margin-bottom: 1rem; }
+        .prose p { margin-bottom: 1.5rem; line-height: 1.75; font-size: 1.125rem; opacity: 0.8; }
+        .prose ul { list-style-type: disc; padding-inline-start: 1.5rem; margin-bottom: 1.5rem; }
+        .prose li { margin-bottom: 0.5rem; font-size: 1.125rem; opacity: 0.8; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-[#020617] text-slate-800 dark:text-slate-200 min-h-screen transition-colors duration-300">
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1.5 bg-indigo-600 z-[60] transition-all duration-100" style="width: 0%"></div>
+    
+    <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-indigo-600 rounded-2xl flex items-center justify-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                </div>
+                <span class="text-xl font-black text-slate-900 dark:text-white">AnswerLibrary</span>
+            </a>
+            <button onclick="toggleDarkMode()" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:scale-110 active:scale-95 transition-all">🌓</button>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-20">
+        
+    <div class="grid lg:grid-cols-12 gap-12">
+        <article class="lg:col-span-8" id="main-content">
+            <nav class="mb-12">
+                <a href="index.html" class="inline-flex items-center gap-2 text-sm font-black text-indigo-600 hover:gap-3 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Back to Library
+                </a>
+            </nav>
+            
+            <header class="mb-12">
+                <span class="inline-block px-4 py-2 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-sm font-black rounded-2xl mb-6 uppercase tracking-widest">Tech</span>
+                <h1 class="text-4xl md:text-5xl font-black mb-8 leading-tight tracking-tight">How to resolve slow initial page load in Chrome and Microsoft Edge?</h1>
+                <div class="flex items-center gap-4 text-sm font-bold text-slate-400">
+                    <span class="flex items-center gap-2 italic">By AnswerLibrary</span>
+                    <span>•</span>
+                    <span id="reading-time">Calculating...</span>
+                </div>
+            </header>
+
+            <div id="markdown-content" class="prose prose-slate dark:prose-invert max-w-none">
+                <!-- Content will be rendered here by marked -->
+                <noscript>### Troubleshooting Slow Initial Page Loads in Chrome and Edge
+
+Slow initial page loads in Chromium-based browsers like Google Chrome and Microsoft Edge are often caused by resource management settings, outdated cache, or conflicting extensions. Below are the most effective methods to resolve the issue:
+
+#### 1. Disable Hardware Acceleration
+Hardware acceleration allows the browser to use your GPU, but it can cause delays if the drivers are outdated or incompatible.
+- **Chrome**: Go to **Settings** > **System** > Toggle off **Use graphics acceleration when available**.
+- **Edge**: Go to **Settings** > **System and performance** > Toggle off **Use graphics acceleration when available**.
+- Restart your browser to apply changes.
+
+#### 2. Manage Extensions
+A rogue or heavy extension can delay the browser's startup process.
+- Open `chrome://extensions` or `edge://extensions`.
+- Disable all extensions and restart the browser. If the page loads quickly, re-enable them one by one to identify the culprit.
+
+#### 3. Flush DNS and Reset Network Settings
+Sometimes the delay is caused by the system's network configuration.
+- Open **Command Prompt** as an administrator.
+- Type `ipconfig /flushdns` and press **Enter**.
+- Type `netsh winsock reset` and press **Enter**.
+- Restart your computer.
+
+#### 4. Clear Browsing Data
+A bloated cache can slow down the initial handshake between the browser and a website.
+- Press `Ctrl + Shift + Del` on your keyboard.
+- Set the time range to **All time**.
+- Check **Cookies and other site data** and **Cached images and files**.
+- Click **Clear data**.
+
+#### 5. Disable 'Automatically Detect Settings' in Windows
+Windows sometimes pauses the first web request while looking for a proxy server.
+- Search for **Proxy Settings** in the Windows Start menu.
+- Toggle off **Automatically detect settings**.
+
+#### 6. Switch to a Faster DNS
+Using a public DNS like Google or Cloudflare can speed up the initial connection to websites.
+- Go to **Settings** > **Privacy and security** > **Security**.
+- Enable **Use secure DNS** and select **Google (Public DNS)** or **Cloudflare (1.1.1.1)**.</noscript>
+            </div>
+
+            <script>
+                document.getElementById('markdown-content').innerHTML = marked.parse(`### Troubleshooting Slow Initial Page Loads in Chrome and Edge
+
+Slow initial page loads in Chromium-based browsers like Google Chrome and Microsoft Edge are often caused by resource management settings, outdated cache, or conflicting extensions. Below are the most effective methods to resolve the issue:
+
+#### 1. Disable Hardware Acceleration
+Hardware acceleration allows the browser to use your GPU, but it can cause delays if the drivers are outdated or incompatible.
+- **Chrome**: Go to **Settings** > **System** > Toggle off **Use graphics acceleration when available**.
+- **Edge**: Go to **Settings** > **System and performance** > Toggle off **Use graphics acceleration when available**.
+- Restart your browser to apply changes.
+
+#### 2. Manage Extensions
+A rogue or heavy extension can delay the browser's startup process.
+- Open \`chrome://extensions\` or \`edge://extensions\`.
+- Disable all extensions and restart the browser. If the page loads quickly, re-enable them one by one to identify the culprit.
+
+#### 3. Flush DNS and Reset Network Settings
+Sometimes the delay is caused by the system's network configuration.
+- Open **Command Prompt** as an administrator.
+- Type \`ipconfig /flushdns\` and press **Enter**.
+- Type \`netsh winsock reset\` and press **Enter**.
+- Restart your computer.
+
+#### 4. Clear Browsing Data
+A bloated cache can slow down the initial handshake between the browser and a website.
+- Press \`Ctrl + Shift + Del\` on your keyboard.
+- Set the time range to **All time**.
+- Check **Cookies and other site data** and **Cached images and files**.
+- Click **Clear data**.
+
+#### 5. Disable 'Automatically Detect Settings' in Windows
+Windows sometimes pauses the first web request while looking for a proxy server.
+- Search for **Proxy Settings** in the Windows Start menu.
+- Toggle off **Automatically detect settings**.
+
+#### 6. Switch to a Faster DNS
+Using a public DNS like Google or Cloudflare can speed up the initial connection to websites.
+- Go to **Settings** > **Privacy and security** > **Security**.
+- Enable **Use secure DNS** and select **Google (Public DNS)** or **Cloudflare (1.1.1.1)**.`);
+            </script>
+
+            <div id="ad-slot" class="reveal"></div>
+
+            <div class="mt-20 border-t border-slate-200 dark:border-slate-800 pt-12">
+                <div id="related-questions" class="reveal"></div>
+            </div>
+        </article>
+
+        <aside class="lg:col-span-4 space-y-8">
+            <div id="toc-placeholder" class="reveal lg:sticky lg:top-32"></div>
+
+            <div class="bg-indigo-600 p-8 rounded-[2rem] text-white reveal shadow-2xl shadow-indigo-600/20 lg:sticky lg:top-[500px]">
+                <h3 class="text-xl font-black mb-4">Share this Knowledge</h3>
+                <p class="text-sm opacity-90 mb-6 font-medium">Was this helpful? Share it with your friends!</p>
+                <div id="share-buttons"></div>
+                <button onclick="copyCurrentUrl()" class="w-full mt-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-2xl text-xs font-black uppercase tracking-widest transition-all">Copy Direct Link</button>
+            </div>
+        </aside>
+    </div>
+  
+    </main>
+
+    <footer class="py-20 border-t border-slate-200 dark:border-slate-900 text-center text-sm font-bold text-slate-400">
+        <div class="flex justify-center gap-6 mb-6">
+            <a href="about.html" class="hover:text-indigo-600">About</a>
+            <a href="privacy.html" class="hover:text-indigo-600">Privacy</a>
+        </div>
+        &copy; 2026 AnswerLibrary. All rights reserved.
+    </footer>
+
+    <button id="back-to-top" class="fixed bottom-10 right-10 w-12 h-12 bg-indigo-600 text-white rounded-2xl shadow-2xl opacity-0 invisible transition-all duration-300 hover:scale-110 flex items-center justify-center z-50">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    </button>
+
+    <script src="add.js"></script>
+</body>
+</html>
