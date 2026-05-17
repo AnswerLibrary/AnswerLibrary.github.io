@@ -9,70 +9,20 @@ function showToast(message) {
     toast.className = 'fixed bottom-24 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-6 py-3 rounded-2xl text-xs font-black shadow-2xl z-[100] transition-all duration-300 opacity-0 translate-y-4';
     toast.innerText = message;
     document.body.appendChild(toast);
-    setTimeout(() => toast.classList.add('opacity-100', 'translate-y-0'), 10);
+    requestAnimationFrame(() => toast.classList.add('opacity-100', 'translate-y-0'));
     setTimeout(() => {
         toast.classList.remove('opacity-100', 'translate-y-0');
         setTimeout(() => toast.remove(), 300);
     }, 3000);
 }
 
-function toggleDarkMode() {
-    const isDark = document.documentElement.classList.toggle('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-}
-
 document.addEventListener("DOMContentLoaded", function() {
-    // --- Initialization & Theme ---
-    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-    }
-
     const contentArea = document.getElementById('main-content');
-    if (!contentArea) return;
-
-    const currentPath = window.location.pathname.split("/").pop();
     const pageTitle = document.title;
     const pageUrl = window.location.href;
+    const currentPath = window.location.pathname.split("/").pop();
 
-    // --- Reading Time ---
-    const words = contentArea.innerText.trim().split(/\s+/).length;
-    const time = Math.ceil(words / 200);
-    const rTimeElem = document.getElementById('reading-time');
-    if (rTimeElem) rTimeElem.innerText = `${time} min read`;
-
-    // --- Scroll Logic ---
-    const progress = document.getElementById('scroll-progress');
-    const btt = document.getElementById('back-to-top');
-    
-    window.addEventListener('scroll', () => {
-        const windScroll = window.pageYOffset;
-        const height = document.documentElement.scrollHeight - window.innerHeight;
-        if (progress) progress.style.width = (windScroll / height) * 100 + "%";
-        
-        if (btt) {
-            btt.classList.toggle('opacity-100', windScroll > 500);
-            btt.classList.toggle('opacity-0', windScroll <= 500);
-        }
-    });
-
-    if (btt) btt.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    // --- Reveal Animations ---
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('opacity-100', 'translate-y-0');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(el => {
-        el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
-        revealObserver.observe(el);
-    });
-
-    // --- Dynamic Content Injection ---
+    // --- Dynamic Share Section ---
     const shareContainer = document.getElementById('share-buttons');
     if (shareContainer) {
         shareContainer.innerHTML = `
@@ -92,8 +42,8 @@ document.addEventListener("DOMContentLoaded", function() {
             </button>
         `;
     }
-});
-  // --- Related Questions Section ---
+
+    // --- Related Questions Section ---
     const relatedContainer = document.getElementById('related-questions');
     if (relatedContainer) {
         fetch('questions.json')
