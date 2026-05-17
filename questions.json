@@ -1,26 +1,242 @@
 [
   {
-    "title": "What is it like for an expat to live in the United Arab Emirates?",
-    "description": "Discover what it's really like for expats living in the UAE, from tax-free salaries and luxury lifestyles to cultural norms and cost of living insights.",
-    "url": "living-in-uae-expat-guide.html",
-    "category": "Expatriate"
+    "title": "Why is my DNS lookup slow on Windows 10 even with fast DNS servers?",
+    "description": "Fix slow DNS lookups on Windows 10. Learn why high-speed servers like Cloudflare or Google might lag and how to optimize your OS settings for faster response.",
+    "url": "slow-dns-lookup-windows-10-fix.html",
+    "category": "Networking"
   },
   {
-    "title": "How does Emiratization affect foreign workers in the UAE?",
-    "description": "Discover how Emiratization impacts the UAE job market for expats, including private sector quotas, recruitment trends, and opportunities for foreign workers.",
-    "url": "how-emiratization-affects-foreign-workers-uae.html",
-    "category": "Employment"
+    "title": "How to fix a 10-second delay in web page loading on a high-end PC?",
+    "description": "Troubleshoot and fix 10-second web page loading delays on high-end PCs by adjusting LAN settings, updating DNS servers, and optimizing browser configurations.",
+    "url": "fix-10-second-web-page-loading-delay-high-end-pc.html",
+    "category": "Troubleshooting"
   },
   {
-    "title": "Is the UAE safe for Western expats and tourists?",
-    "description": "Discover why the UAE is ranked among the safest countries for Western expats and tourists. Learn about crime rates, local laws, and essential safety tips.",
-    "url": "is-uae-safe-for-westerners.html",
-    "category": "Safety"
+    "title": "Can Hyper-V network adapters cause slow internet browsing at home?",
+    "description": "Hyper-V network adapters can slow down your home internet. Learn why virtual switches cause latency and how to fix slow browsing by disabling VMQ and LSO.",
+    "url": "hyper-v-network-adapter-slow-internet.html",
+    "category": "Networking"
   },
   {
-    "title": "What are the main differences between Dubai, Abu Dhabi, and Sharjah?",
-    "description": "Discover the main differences between Dubai, Abu Dhabi, and Sharjah. This guide covers lifestyle, culture, costs, and tourism highlights for the three emirates.",
-    "url": "differences-between-dubai-abu-dhabi-sharjah.html",
-    "category": "Travel"
+    "title": "Why do DNS queries take 15 seconds to resolve on Windows workstations?",
+    "description": "Discover why DNS queries take 15 seconds to resolve on Windows. Learn to troubleshoot LLMNR fallbacks, IPv6 precedence issues, and network adapter priorities.",
+    "url": "windows-dns-15-second-resolve-fix.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How to identify duplicate DNS queries in a network sniffer log?",
+    "description": "Learn how to identify duplicate DNS queries in network sniffer logs by analyzing Transaction IDs, timestamps, and query names using tools like Wireshark.",
+    "url": "how-to-identify-duplicate-dns-queries.html",
+    "category": "Networking"
+  },
+  {
+    "title": "What happens if a virtual network adapter has an unreachable DNS setting?",
+    "description": "An unreachable DNS setting on a virtual adapter prevents domain name resolution, causing web browsing failures while potentially maintaining direct IP access.",
+    "url": "unreachable-dns-virtual-network-adapter.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How to disable unused virtual network adapters in Windows 11?",
+    "description": "Learn how to disable unused virtual network adapters in Windows 11 using Settings, Device Manager, or PowerShell to clean up your network connections.",
+    "url": "how-to-disable-unused-virtual-network-adapters-windows-11.html",
+    "category": "Networking"
+  },
+  {
+    "title": "Does a work VPN DNS configuration slow down home internet connections?",
+    "description": "Learn how work VPN DNS configurations increase latency and impact your home internet speed. Understand the difference between DNS resolution and bandwidth.",
+    "url": "work-vpn-dns-slow-internet-speed.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How to use PowerShell to measure exact DNS resolution speed?",
+    "description": "Learn how to accurately measure DNS resolution speed using PowerShell. Use Measure-Command and Resolve-DnsName to benchmark DNS performance and latency.",
+    "url": "powershell-measure-dns-resolution-speed.html",
+    "category": "Networking"
+  },
+  {
+    "title": "Why does my browser wait 10 seconds before starting to load a page?",
+    "description": "Discover why your browser waits 10 seconds before loading. We cover DNS issues, server response times, proxy settings, and troubleshooting steps for speed.",
+    "url": "why-browser-waits-10-seconds-to-load.html",
+    "category": "Technology"
+  },
+  {
+    "title": "Can multiple network adapters cause DNS conflicts on Windows?",
+    "description": "Learn how multiple network adapters can lead to DNS conflicts on Windows and discover how to fix priority issues using interface metrics and settings.",
+    "url": "can-multiple-network-adapters-cause-dns-conflicts-windows.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How to fix DNS resolution issues specifically caused by Hyper-V settings?",
+    "description": "Fix Hyper-V DNS resolution issues by adjusting Virtual Switch settings, configuring manual DNS servers, and restarting host network services for connectivity.",
+    "url": "fix-hyper-v-dns-resolution-issues.html",
+    "category": "Virtualization"
+  },
+  {
+    "title": "Why are DNS lookups slow while tracert results appear normal?",
+    "description": "Learn why DNS lookups may lag even when tracert shows a fast connection, covering server configuration, IPv6 issues, and network bottlenecks.",
+    "url": "why-dns-lookups-slow-tracert-normal.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How to remove stale DNS settings from virtual Ethernet adapters?",
+    "description": "Learn how to remove stale DNS settings from virtual Ethernet adapters on Windows using CMD, PowerShell, and Registry fixes to resolve networking conflicts.",
+    "url": "remove-stale-dns-virtual-ethernet-adapters.html",
+    "category": "Networking"
+  },
+  {
+    "title": "What is the purpose of the Resolve-DnsName command in troubleshooting?",
+    "description": "Learn how Resolve-DnsName helps troubleshoot network issues by verifying DNS records, testing specific servers, and analyzing resolution protocols in PowerShell.",
+    "url": "what-is-resolve-dnsname-purpose-troubleshooting.html",
+    "category": "Networking"
+  },
+  {
+    "title": "Why does a Dell workstation experience slow initial website connections?",
+    "description": "Fix slow initial website connections on your Dell workstation by disabling Dell Optimizer, updating drivers, and optimizing DNS and IPv6 settings.",
+    "url": "dell-workstation-slow-website-connections.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How to troubleshoot slow DNS when changing providers doesn't help?",
+    "description": "Struggling with slow DNS after changing providers? Learn how to troubleshoot network settings, router issues, and OS configurations to fix latency for good.",
+    "url": "troubleshoot-persistent-dns-latency.html",
+    "category": "Networking"
+  },
+  {
+    "title": "Can Windows Defender settings lead to DNS lookup delays?",
+    "description": "Learn how Windows Defender settings like Network Protection and SmartScreen can impact DNS performance and how to optimize your system for faster lookups.",
+    "url": "can-windows-defender-settings-cause-dns-lookup-delays.html",
+    "category": "Security"
+  },
+  {
+    "title": "How to fix slow internet performance when using LTE modems on Windows?",
+    "description": "Fix slow LTE modem performance on Windows with our guide on optimizing signal, updating drivers, and managing background data usage for faster internet speeds.",
+    "url": "how-to-fix-slow-lte-modem-internet-windows.html",
+    "category": "Networking"
+  },
+  {
+    "title": "Why do DNS lookups work for cached sites but fail for new ones?",
+    "description": "Learn why DNS lookups work for cached sites but fail for new domains. Explore recursive resolver issues, local cache mechanics, and troubleshooting steps.",
+    "url": "dns-lookups-work-for-cached-sites-fail-for-new-ones.html",
+    "category": "Networking"
+  },
+  {
+    "title": "What are the steps to troubleshoot DNS latency on Windows 11 Pro?",
+    "description": "Learn how to diagnose and fix DNS latency on Windows 11 Pro using command-line tools, DNS benchmarks, and network configuration tweaks for faster browsing.",
+    "url": "troubleshoot-dns-latency-windows-11-pro.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How to measure DNS response time using Measure-Command in PowerShell?",
+    "description": "Learn how to use the Measure-Command cmdlet in PowerShell to calculate DNS response times and troubleshoot network latency with Resolve-DnsName effectively.",
+    "url": "how-to-measure-dns-response-time-powershell-measure-command.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How does an unreachable VPN DNS impact overall local network speed?",
+    "description": "Learn how an unreachable VPN DNS server causes latency, timeouts, and perceived network slowdowns, and find out how to fix DNS resolution issues effectively.",
+    "url": "unreachable-vpn-dns-impact-network-speed.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How can I find which network adapter is causing slow DNS resolution?",
+    "description": "Learn how to identify and troubleshoot which network adapter is causing slow DNS resolution on your system using PowerShell, nslookup, and interface metrics.",
+    "url": "find-slow-dns-network-adapter.html",
+    "category": "Networking"
+  },
+  {
+    "title": "Why are my network DNS queries being duplicated in diagnostic tools?",
+    "description": "Learn why DNS queries appear duplicated in diagnostic tools like Wireshark. Explore causes like IPv4/IPv6 dual-stacking, multiple resolvers, and capture settings.",
+    "url": "why-dns-queries-duplicated-diagnostic-tools.html",
+    "category": "Networking"
+  },
+  {
+    "title": "Will disabling the Hyper-V virtual switch speed up my internet connection?",
+    "description": "Find out if disabling the Hyper-V virtual switch actually improves internet speeds. Learn about network overhead, driver issues, and performance optimization.",
+    "url": "disabling-hyper-v-virtual-switch-internet-speed.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How to run a DNS benchmark to find the fastest server for Windows?",
+    "description": "Learn how to run a DNS benchmark on Windows to find the fastest name servers. Improve your internet speed and browsing response times with this easy guide.",
+    "url": "how-to-run-dns-benchmark-windows.html",
+    "category": "Networking"
+  },
+  {
+    "title": "What should I do if OpenDNS is slow on a high-performance workstation?",
+    "description": "Troubleshoot and fix slow OpenDNS response times on high-performance workstations with our guide on benchmarking, cache flushing, and network optimization.",
+    "url": "fix-opendns-slow-on-workstation.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How to clear unreachable internal DNS servers from Windows adapter settings?",
+    "description": "Learn how to remove unresponsive or old internal DNS servers from Windows network adapter settings using the GUI, Command Prompt, or PowerShell for better speed.",
+    "url": "clear-unreachable-internal-dns-windows.html",
+    "category": "Networking"
+  },
+  {
+    "title": "Fixing initial connection delays on PCs with NVMe and 64GB RAM.",
+    "description": "Fix initial connection delays on high-end PCs with NVMe and 64GB RAM. Troubleshoot DNS settings, network power management, and TCP/IP for faster connectivity.",
+    "url": "fix-initial-connection-delays-nvme-64gb-ram.html",
+    "category": "Networking"
+  },
+  {
+    "title": "Why is DNS lookup significantly longer for previously unvisited websites?",
+    "description": "Learn why DNS lookups take longer for new websites. Explore the role of DNS caching, recursive queries, and how the lookup process impacts your page load speed.",
+    "url": "dns-lookup-latency-unvisited-sites.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How to use DNS Query Sniffer to identify network resolution bottlenecks?",
+    "description": "Learn how to use DNS Query Sniffer to troubleshoot network latency. Identify slow DNS resolutions and bottlenecks by monitoring query duration and response codes.",
+    "url": "how-to-use-dns-query-sniffer-network-bottlenecks.html",
+    "category": "Networking"
+  },
+  {
+    "title": "What is the best way to fix slow DNS without switching ISP providers?",
+    "description": "Learn how to fix slow DNS issues without changing ISPs by switching to public DNS providers, flushing your cache, and using benchmarking tools for speed.",
+    "url": "fix-slow-dns-without-switching-isp.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How to identify hidden or virtual network adapters in Windows 10?",
+    "description": "Learn how to find and identify hidden or virtual network adapters in Windows 10 using Device Manager, PowerShell, and Command Prompt with this easy guide.",
+    "url": "identify-hidden-virtual-network-adapters-windows-10.html",
+    "category": "Windows"
+  },
+  {
+    "title": "How to resolve slow initial page load in Chrome and Microsoft Edge?",
+    "description": "Fix slow initial page loading in Chrome and Edge by disabling hardware acceleration, managing extensions, flushing DNS, and optimizing browser settings.",
+    "url": "resolve-slow-initial-page-load-chrome-edge.html",
+    "category": "Tech"
+  },
+  {
+    "title": "Can legacy remote work VPN settings interfere with home Wi-Fi DNS?",
+    "description": "Learn how legacy VPN configurations can disrupt your home Wi-Fi DNS settings, leading to slow internet and connection issues even after disconnecting.",
+    "url": "legacy-vpn-dns-interference.html",
+    "category": "Networking"
+  },
+  {
+    "title": "What is the difference between ISP DNS and virtual adapter DNS priority?",
+    "description": "Learn the difference between ISP DNS and virtual adapter DNS priority. Discover how interface metrics and VPNs determine which DNS server your OS uses first.",
+    "url": "isp-dns-vs-virtual-adapter-dns-priority.html",
+    "category": "Networking"
+  },
+  {
+    "title": "Troubleshooting slow internet on i7 workstations with multiple adapters.",
+    "description": "Fix slow internet on i7 workstations with multiple adapters by configuring interface metrics, disabling power saving, and resetting the network stack.",
+    "url": "troubleshoot-slow-internet-i7-adapters.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How to calculate total milliseconds for a DNS query resolution?",
+    "description": "Learn how to calculate DNS query resolution time in milliseconds using command-line tools like dig, cURL, Python scripts, and browser developer tools.",
+    "url": "how-to-calculate-dns-query-resolution-time.html",
+    "category": "Networking"
+  },
+  {
+    "title": "Why does Windows try to use an unreachable work DNS while at home?",
+    "description": "Learn why Windows attempts to use unreachable work DNS servers while you are at home and discover how to fix persistent network settings and VPN-related issues.",
+    "url": "why-windows-uses-work-dns-at-home.html",
+    "category": "Networking"
   }
 ]
