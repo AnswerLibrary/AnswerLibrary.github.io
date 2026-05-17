@@ -103,16 +103,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (btt) btt.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        // TOC Generation
-        const tocPlaceholder = document.getElementById('toc-placeholder');
-        if (headers.length > 0 && tocPlaceholder) {
-            tocPlaceholder.innerHTML = `<div class="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 p-8 rounded-[2rem]"><h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-6">On this page</h4><ul id="toc-list" class="space-y-4 text-sm font-bold text-slate-500"></ul></div>`;
-            headers.forEach((h, index) => {
-                h.id = 'section-' + index;
-                const li = document.createElement('li');
-                li.innerHTML = `<a href="#${h.id}" class="hover:text-indigo-600 transition-all flex items-center gap-3"><span>${h.innerText}</span></a>`;
-                document.getElementById('toc-list').appendChild(li);
-            });
         }
     }
 });
