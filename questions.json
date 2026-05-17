@@ -1,5 +1,5 @@
 [
-  {
+ {
     "title": "Why is my DNS lookup slow despite using fast servers like OpenDNS or Cloudflare?",
     "description": "Discover why DNS lookups remain slow despite using Cloudflare or OpenDNS. Learn about ISP hijacking, routing issues, IPv6 timeouts, and hardware bottlenecks.",
     "url": "why-dns-lookup-slow-fast-servers.html",
