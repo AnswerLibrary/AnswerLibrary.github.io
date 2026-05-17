@@ -1,37 +1,64 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - AnswerLibrary</title>
+    <meta name="description" content="Privacy Policy - AnswerLibrary">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>tailwind.config={darkMode:'class'}</script>
+    
+    <style>
+        .prose h1, .prose h2, .prose h3 { font-weight: 900; tracking: -0.025em; margin-top: 2rem; margin-bottom: 1rem; }
+        .prose p { margin-bottom: 1.5rem; line-height: 1.75; font-size: 1.125rem; opacity: 0.8; }
+        .prose ul { list-style-type: disc; padding-inline-start: 1.5rem; margin-bottom: 1.5rem; }
+        .prose li { margin-bottom: 0.5rem; font-size: 1.125rem; opacity: 0.8; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 10px; }
+    </style>
 </head>
-<body class="bg-slate-50 dark:bg-[#020617] text-slate-800 dark:text-slate-200 min-h-screen">
-<header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50 transition-colors">
+<body class="bg-slate-50 dark:bg-[#020617] text-slate-800 dark:text-slate-200 min-h-screen transition-colors duration-300">
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1.5 bg-indigo-600 z-[60] transition-all duration-100" style="width: 0%"></div>
+    
+    <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
         <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-indigo-600 rounded-2xl flex items-center justify-center text-white"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></div>
+                <div class="w-10 h-10 bg-indigo-600 rounded-2xl flex items-center justify-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                </div>
                 <span class="text-xl font-black text-slate-900 dark:text-white">AnswerLibrary</span>
             </a>
-            <button onclick="toggleDarkMode()" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800">🌓</button>
+            <button onclick="toggleDarkMode()" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:scale-110 active:scale-95 transition-all">🌓</button>
         </div>
     </header>
-    <main class="max-w-3xl mx-auto px-6 py-24">
-        <h1 class="text-4xl font-black mb-8">Privacy Policy</h1>
-        <div class="space-y-6">
-            <h2 class="text-2xl font-bold">Data Collection</h2>
+
+    <main class="max-w-5xl mx-auto px-6 py-20">
+        
+    <article class="max-w-3xl mx-auto py-10 text-center">
+        <h1 class="text-4xl font-black mb-10">Privacy Policy</h1>
+        <div class="text-lg opacity-80 text-left">
             <p>AnswerLibrary does not track you. We use no cookies or third-party analytical tools.</p>
-            <h2 class="text-2xl font-bold">Cookies</h2>
-            <p>We only use your browser's local storage to save your preference for light or dark mode.</p>
         </div>
+    </article>
+  
     </main>
-  <footer class="py-20 border-t border-slate-200 dark:border-slate-900 text-center text-sm font-bold text-slate-400">
+
+    <footer class="py-20 border-t border-slate-200 dark:border-slate-900 text-center text-sm font-bold text-slate-400">
         <div class="flex justify-center gap-6 mb-6">
             <a href="about.html" class="hover:text-indigo-600">About</a>
             <a href="privacy.html" class="hover:text-indigo-600">Privacy</a>
         </div>
         &copy; 2026 AnswerLibrary. All rights reserved.
     </footer>
-    <script>if(localStorage.theme==='dark'||(!('theme' in localStorage)&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark');</script>
+
+    <button id="back-to-top" class="fixed bottom-10 right-10 w-12 h-12 bg-indigo-600 text-white rounded-2xl shadow-2xl opacity-0 invisible transition-all duration-300 hover:scale-110 flex items-center justify-center z-50">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    </button>
+
+    <script src="add.js"></script>
 </body>
 </html>
+ 
