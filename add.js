@@ -9,9 +9,7 @@ function showToast(message) {
     toast.className = 'fixed bottom-24 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-6 py-3 rounded-2xl text-xs font-black shadow-2xl z-[100] transition-all duration-300 opacity-0 translate-y-4';
     toast.innerText = message;
     document.body.appendChild(toast);
-    requestAnimationFrame(() => {
-        toast.classList.add('opacity-100', 'translate-y-0');
-    });
+    setTimeout(() => toast.classList.add('opacity-100', 'translate-y-0'), 10);
     setTimeout(() => {
         toast.classList.remove('opacity-100', 'translate-y-0');
         setTimeout(() => toast.remove(), 300);
@@ -24,22 +22,23 @@ function toggleDarkMode() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    // --- Theme Initialization ---
+    // --- Initialization & Theme ---
     if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
     }
 
     const contentArea = document.getElementById('main-content');
+    if (!contentArea) return;
+
+    const currentPath = window.location.pathname.split("/").pop();
     const pageTitle = document.title;
     const pageUrl = window.location.href;
 
     // --- Reading Time ---
-    if (contentArea) {
-        const words = contentArea.innerText.trim().split(/\s+/).length;
-        const time = Math.ceil(words / 200);
-        const rTimeElem = document.getElementById('reading-time');
-        if (rTimeElem) rTimeElem.innerText = `${time} min read`;
-    }
+    const words = contentArea.innerText.trim().split(/\s+/).length;
+    const time = Math.ceil(words / 200);
+    const rTimeElem = document.getElementById('reading-time');
+    if (rTimeElem) rTimeElem.innerText = `${time} min read`;
 
     // --- Scroll Logic ---
     const progress = document.getElementById('scroll-progress');
@@ -54,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
             btt.classList.toggle('opacity-100', windScroll > 500);
             btt.classList.toggle('opacity-0', windScroll <= 500);
         }
-    }, { passive: true });
+    });
 
     if (btt) btt.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -92,5 +91,27 @@ document.addEventListener("DOMContentLoaded", function() {
                 COPY DIRECT LINK
             </button>
         `;
+    }
+});
+  // --- Related Questions Section ---
+    const relatedContainer = document.getElementById('related-questions');
+    if (relatedContainer) {
+        fetch('questions.json')
+            .then(res => res.json())
+            .then(data => {
+                const related = data.filter(q => q.url !== currentPath).sort(() => 0.5 - Math.random()).slice(0, 4);
+                if (related.length > 0) {
+                    relatedContainer.innerHTML = `
+                        <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-6">Suggested for you</h4>
+                        <div class="grid md:grid-cols-2 gap-4">${related.map(q => `
+                            <a href="${q.url}" class="p-6 bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800/50 rounded-3xl hover:border-indigo-500 hover:shadow-2xl transition-all group">
+                                <span class="text-[10px] font-black text-indigo-500 uppercase tracking-widest bg-indigo-50 dark:bg-indigo-900/20 px-2 py-1 rounded-md">${q.category}</span>
+                                <h5 class="font-bold text-slate-800 dark:text-slate-100 mt-3 mb-2 group-hover:text-indigo-600 transition-colors">${q.title}</h5>
+                                <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-2">${q.description}</p>
+                            </a>
+                        `).join('')}</div>
+                    `;
+                }
+            }).catch(err => console.error("Error loading related:", err));
     }
 });
