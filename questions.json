@@ -1198,4 +1198,244 @@
     "url": "how-to-refresh-browser-cache-cookie-conflicts.html",
     "category": "Technology"
   }
+, {
+    "title": "How do I extract a .tar.gz file in a Linux terminal?",
+    "description": "Learn how to extract .tar.gz files in the Linux terminal using the tar command. This guide covers basic extraction and extracting to specific directories.",
+    "url": "how-to-extract-tar-gz-linux-terminal.html",
+    "category": "Linux"
+  },
+  {
+    "title": "What is the specific command to unzip tar.gz files via SSH?",
+    "description": "Learn the specific Linux command to unzip and extract tar.gz files via SSH using the tar utility. Includes flag explanations and directory examples.",
+    "url": "unzip-targz-ssh-command.html",
+    "category": "Linux"
+  },
+  {
+    "title": "How to extract a tar.gz file to a specific directory in Ubuntu?",
+    "description": "Learn how to extract a tar.gz file to a specific directory in Ubuntu using the tar command and the -C flag. Simple, step-by-step guide for Linux users.",
+    "url": "extract-targz-to-specific-directory-ubuntu.html",
+    "category": "Linux"
+  },
+  {
+    "title": "What does the -xvzf flag mean in the tar command?",
+    "description": "Learn what the -xvzf flag means in the tar command. Understand how to extract, decompress gzip files, and use verbose mode for Linux archive management.",
+    "url": "tar-xvzf-flag-meaning-explanation.html",
+    "category": "Linux"
+  },
+  {
+    "title": "Why does the unzip command fail on .tar.gz archives?",
+    "description": "Learn why the unzip command fails on .tar.gz archives. Understand the differences between ZIP and Gzip formats and how to extract your tarballs correctly.",
+    "url": "why-unzip-fails-on-tar-gz.html",
+    "category": "Linux"
+  },
+  {
+    "title": "How can I see the progress of a tar extraction in the command line?",
+    "description": "Learn how to monitor tar extraction progress in the command line using the pv utility, GNU tar checkpoints, or verbose mode for Linux and macOS.",
+    "url": "tar-extraction-progress-command-line.html",
+    "category": "Linux"
+  },
+  {
+    "title": "What is the difference between .tar and .tar.gz file extraction?",
+    "description": "Learn the key differences between .tar and .tar.gz file extraction. This guide covers archiving vs. compression and provides Linux commands for both formats.",
+    "url": "difference-between-tar-and-tar-gz-extraction.html",
+    "category": "Linux"
+  },
+  {
+    "title": "Does modern tar require the -z flag for gzip decompression?",
+    "description": "Learn why modern GNU tar doesn't need the -z flag for gzip decompression and how auto-detection works for extracting tar.gz archives on Linux and macOS.",
+    "url": "does-modern-tar-require-z-flag-gzip.html",
+    "category": "Linux"
+  },
+  {
+    "title": "How to handle 'End-of-central-directory signature not found' in Linux?",
+    "description": "Fix the 'End-of-central-directory signature not found' error in Linux. Learn how to repair corrupted ZIP files, use 7-Zip, and verify file integrity.",
+    "url": "handle-end-of-central-directory-signature-not-found-linux.html",
+    "category": "Linux"
+  },
+  {
+    "title": "What is the mnemonic to remember tar extraction flags?",
+    "description": "Learn the 'eXtract Very Fast' mnemonic for tar extraction flags (-xvf) to easily remember how to unpack archives on Linux and Unix-based operating systems.",
+    "url": "tar-extraction-flags-mnemonic.html",
+    "category": "Linux"
+  },
+  {
+    "title": "How to extract a large 800MB tar.gz file on a remote server?",
+    "description": "Learn how to extract a large 800MB tar.gz file on a remote server using SSH. Discover efficient tar commands, background processing, and directory management tips.",
+    "url": "extract-large-targz-remote-server.html",
+    "category": "Linux"
+  },
+  {
+    "title": "Can I use tar xf without hyphens to extract archives?",
+    "description": "Learn whether you can use tar xf without hyphens to extract archives. Understand BSD-style commands, GNU tar syntax, and best practices for terminal usage.",
+    "url": "can-i-use-tar-xf-without-hyphens.html",
+    "category": "Linux"
+  },
+  {
+    "title": "How to use the --directory option with the tar command?",
+    "description": "Learn how to use the tar command's --directory (-C) option to extract archives to specific folders or create backups without long file paths in Linux systems.",
+    "url": "how-to-use-tar-directory-option.html",
+    "category": "Linux"
+  },
+  {
+    "title": "What is the simplest way to extract tar.gz files in 2026?",
+    "description": "Learn the simplest ways to extract tar.gz files in 2026 on Windows, macOS, and Linux using native system tools and quick command-line shortcuts for 2026.",
+    "url": "extract-targz-files-simplest-way-2026.html",
+    "category": "Technology"
+  },
+  {
+    "title": "How to extract tar.gz files using long-form command options?",
+    "description": "Learn how to extract tar.gz archive files using descriptive long-form command-line options in Linux. Master the tar utility with clear, readable parameters.",
+    "url": "extract-tar-gz-long-form-options.html",
+    "category": "Linux"
+  },
+  {
+    "title": "Is it possible to extract a .tar.gz file using a Python script?",
+    "description": "Learn how to extract .tar.gz files using Python's built-in tarfile module. Includes code examples, security tips, and step-by-step instructions for developers.",
+    "url": "extract-tar-gz-file-python.html",
+    "category": "Python"
+  },
+  {
+    "title": "How to fix 'unzip: cannot find zipfile directory' error for tar files?",
+    "description": "Learn why the 'unzip: cannot find zipfile directory' error occurs and how to fix it by using the correct tar command to extract .tar and .tar.gz archives.",
+    "url": "fix-unzip-cannot-find-zipfile-directory-tar.html",
+    "category": "Linux"
+  },
+  {
+    "title": "What flag is used to make tar output more verbose?",
+    "description": "Learn how to use the -v or --verbose flag with the tar command in Linux/Unix to list files during compression or extraction for better progress monitoring.",
+    "url": "tar-verbose-output-flag.html",
+    "category": "Linux"
+  },
+  {
+    "title": "How to extract compressed images from a tar.gz via command line?",
+    "description": "Learn how to extract specific image files like JPG, PNG, and GIF from a tar.gz archive using the command line tar utility with wildcard filtering options.",
+    "url": "extract-images-from-targz-command-line.html",
+    "category": "Linux"
+  },
+  {
+    "title": "Where do files go by default when using tar -xf?",
+    "description": "Learn where files are extracted by default when using the tar -xf command in Linux and how to specify a different destination directory using the -C flag.",
+    "url": "where-do-files-go-by-default-tar-xf.html",
+    "category": "Linux"
+  },
+  {
+    "title": "How to extract .tar.bz2 files using the tar command?",
+    "description": "Learn how to extract .tar.bz2 files using the tar command in Linux. This tutorial covers extraction flags and outputting files to specific directories.",
+    "url": "how-to-extract-tar-bz2-files-tar-command.html",
+    "category": "Linux"
+  },
+  {
+    "title": "What is the shortcut command for extracting all archive types in Linux?",
+    "description": "Learn the best shortcut commands to extract any archive format in Linux, including .tar, .zip, .rar, and .7z using a universal Bash function or dtrx tool.",
+    "url": "shortcut-command-extract-all-archives-linux.html",
+    "category": "Linux"
+  },
+  {
+    "title": "How to use the -C flag to change directory during tar extraction?",
+    "description": "Learn how to use the tar -C flag to extract files to a specific directory. This guide covers syntax, examples, and directory requirements for Linux systems.",
+    "url": "how-to-use-tar-c-flag-to-change-directory-extraction.html",
+    "category": "Linux"
+  },
+  {
+    "title": "What happens if I put the -f flag at the beginning of a tar command?",
+    "description": "Learn how the -f flag affects the tar command in Linux. Understand why placement matters and how it defines the archive filename to avoid errors.",
+    "url": "what-happens-tar-f-flag-beginning.html",
+    "category": "Linux"
+  },
+  {
+    "title": "How to extract .tar.xz files in a Linux environment?",
+    "description": "Learn how to extract .tar.xz files in Linux using the tar command. This guide covers basic extraction, verbose output, and extracting to specific folders.",
+    "url": "how-to-extract-tar-xz-linux.html",
+    "category": "Linux"
+  },
+  {
+    "title": "Can I list files inside a tar.gz without extracting them?",
+    "description": "Learn how to list files inside a .tar.gz archive without extracting them using the tar command. Simple Linux terminal guide for viewing compressed contents.",
+    "url": "list-files-tar-gz-without-extracting.html",
+    "category": "Linux"
+  },
+  {
+    "title": "How to use the tarfile module in Python to unzip files?",
+    "description": "Learn how to extract .tar, .tar.gz, and .tar.bz2 archives in Python using the tarfile module. Includes code examples for safe and efficient file extraction.",
+    "url": "how-to-use-python-tarfile-module-to-extract-files.html",
+    "category": "Python"
+  },
+  {
+    "title": "Difference between GNU tar and BSD tar flags for beginners?",
+    "description": "Learn the key differences between GNU tar and BSD tar flags. Discover syntax variations, auto-detection features, and compatibility tips for Linux and macOS.",
+    "url": "difference-between-gnu-tar-and-bsd-tar-flags.html",
+    "category": "Linux"
+  },
+  {
+    "title": "How to extract a tar.gz file if the filename contains spaces?",
+    "description": "Learn how to extract a .tar.gz file with spaces in the filename using quotes or backslashes in a Linux terminal. Master simple command line techniques.",
+    "url": "how-to-extract-targz-file-with-spaces.html",
+    "category": "Linux"
+  },
+  {
+    "title": "How to unzip files on a hosting site with slow FTP connection?",
+    "description": "Learn how to unzip files on a hosting server to bypass slow FTP connections. Use cPanel File Manager, SSH, or a PHP script to extract archives quickly.",
+    "url": "how-to-unzip-files-on-hosting-slow-ftp.html",
+    "category": "Hosting"
+  },
+  {
+    "title": "What is the 'z' filter used for in the Linux tar utility?",
+    "description": "Learn how the 'z' filter in the Linux tar utility works with gzip compression. Discover how to create and extract .tar.gz files efficiently using examples.",
+    "url": "linux-tar-z-filter-explained.html",
+    "category": "Linux"
+  },
+  {
+    "title": "How to extract only specific files from a large tar.gz archive?",
+    "description": "Learn how to extract specific files or directories from a large tar.gz archive using the tar command. Save time and disk space with these simple Linux commands.",
+    "url": "how-to-extract-specific-files-from-targz.html",
+    "category": "Linux"
+  },
+  {
+    "title": "What is the correct syntax for tar -xzvf command?",
+    "description": "Learn the correct syntax for the tar -xzvf command to extract .tar.gz files in Linux. Understand flag meanings and see practical extraction examples today.",
+    "url": "tar-xzvf-command-syntax.html",
+    "category": "Linux"
+  },
+  {
+    "title": "How to troubleshoot corrupted .tar.gz file extractions?",
+    "description": "Learn how to troubleshoot and fix corrupted .tar.gz extractions using checksums, two-step decompression, and recovery tools to salvage your data effectively.",
+    "url": "troubleshoot-corrupted-tar-gz-extractions.html",
+    "category": "Linux"
+  },
+  {
+    "title": "Which tar flag handles bzip2 compression decompression?",
+    "description": "Learn which tar flag is used for bzip2 compression and decompression. Find examples for creating and extracting .tar.bz2 archives in Linux command line.",
+    "url": "tar-flag-bzip2-compression-decompression.html",
+    "category": "Linux"
+  },
+  {
+    "title": "How to auto-detect compression type when extracting in Linux?",
+    "description": "Learn how to automatically detect and extract various archive types (zip, tar.gz, bz2, xz) in Linux using tar, atool, and other powerful command-line tools.",
+    "url": "auto-detect-compression-linux-extraction.html",
+    "category": "Linux"
+  },
+  {
+    "title": "Is it safe to use tar -xf on unknown compressed archives?",
+    "description": "Discover the security risks of using tar -xf on untrusted archives, including path traversal and tar bombs, and learn the best practices for safe extraction.",
+    "url": "is-it-safe-to-use-tar-xf-on-unknown-archives.html",
+    "category": "Security"
+  },
+  {
+    "title": "How to search within man pages for tar command options?",
+    "description": "Learn how to efficiently search for flags and options within the Linux tar command manual using built-in pager shortcuts like forward slash and navigation keys.",
+    "url": "search-man-pages-tar-command-options.html",
+    "category": "Linux"
+  },
+  {
+    "title": "What does -caf do compared to -xf in tar creation?",
+    "description": "Learn the differences between tar -caf and -xf. Discover how -caf creates auto-compressed archives while -xf extracts them in this quick Linux command guide.",
+    "url": "tar-caf-vs-xf-difference.html",
+    "category": "Linux"
+  },
+  {
+    "title": "How to create a destination folder before tar extraction?",
+    "description": "Learn how to create a destination folder and extract a tar archive in one command using mkdir -p and the tar -C flag for efficient Linux file management.",
+    "url": "create-destination-folder-before-tar-extraction.html",
+    "category": "Linux"
+  }
 ]
