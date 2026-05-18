@@ -1,11 +1,5 @@
 // --- Utilities ---
-function copyCurrentUrl() {
-    navigator.clipboard.writeText(window.location.href);
-    showToast("Link copied successfully!");
-}
-
 function showToast(message) {
-    // Remove any existing toast first
     const existing = document.querySelector('.toast-popup');
     if (existing) existing.remove();
 
@@ -14,7 +8,6 @@ function showToast(message) {
     toast.innerText = message;
     document.body.appendChild(toast);
     
-    // Trigger transition
     requestAnimationFrame(() => {
         toast.classList.remove('opacity-0', 'translate-y-4');
         toast.classList.add('opacity-100', 'translate-y-0');
@@ -26,37 +19,39 @@ function showToast(message) {
     }, 3000);
 }
 
+function copyCurrentUrl() {
+    navigator.clipboard.writeText(window.location.href);
+    showToast("Link copied successfully!");
+}
+
 function toggleDarkMode() {
     const isDark = document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }
 
+// --- Initialization ---
 document.addEventListener("DOMContentLoaded", function() {
-    // --- Theme Init ---
+    // 1. Theme Setup
     if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
     }
 
-    // --- Markdown Rendering & Reading Time ---
+    // 2. Reading Time (Runs after marked.js parsing)
     const markdownContent = document.getElementById('markdown-content');
     if (markdownContent) {
-        // Logic to calculate time based on content
         const words = markdownContent.innerText.trim().split(/\s+/).length;
         const time = Math.ceil(words / 200);
         const rTimeElem = document.getElementById('reading-time');
         if (rTimeElem) rTimeElem.innerText = `${time} min read`;
     }
 
-    // --- Scroll Logic ---
+    // 3. Scroll Logic
     const progress = document.getElementById('scroll-progress');
     const btt = document.getElementById('back-to-top');
-    
     window.addEventListener('scroll', () => {
         const windScroll = window.pageYOffset;
         const height = document.documentElement.scrollHeight - window.innerHeight;
-        const scrolled = (windScroll / height) * 100;
-        if (progress) progress.style.width = scrolled + "%";
-        
+        if (progress) progress.style.width = (windScroll / height) * 100 + "%";
         if (btt) {
             btt.classList.toggle('opacity-100', windScroll > 500);
             btt.classList.toggle('visible', windScroll > 500);
@@ -64,10 +59,9 @@ document.addEventListener("DOMContentLoaded", function() {
             btt.classList.toggle('invisible', windScroll <= 500);
         }
     });
-
     if (btt) btt.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // --- Intersection Observer for Animations ---
+    // 4. Reveal Animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -76,17 +70,17 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.reveal').forEach(el => {
         el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
         observer.observe(el);
     });
 
-    // --- Content Injection ---
+    // 5. Dynamic Content Injection
     const pageTitle = document.title;
     const pageUrl = window.location.href;
     const currentPath = window.location.pathname.split("/").pop();
 
+    // Share Buttons
     const shareContainer = document.getElementById('share-buttons');
     if (shareContainer) {
         shareContainer.innerHTML = `
@@ -96,5 +90,25 @@ document.addEventListener("DOMContentLoaded", function() {
                 <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(pageTitle)}&url=${encodeURIComponent(pageUrl)}" target="_blank" class="w-12 h-12 rounded-2xl bg-black flex items-center justify-center text-white shadow-lg hover:-translate-y-1 transition-transform"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
             </div>
         `;
+    }
+
+    // Ad Slot
+    const adContainer = document.getElementById('ad-slot');
+    if (adContainer) {
+        adContainer.innerHTML = `<div class="my-10 p-6 bg-slate-50 dark:bg-slate-900/50 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-[2rem] text-center"><span class="text-[10px] font-black text-slate-300 dark:text-slate-700 uppercase tracking-widest">Advertisement</span><div class="mt-4 min-h-[120px] flex items-center justify-center text-slate-300 dark:text-slate-700 font-black italic text-xl">Your ad here</div></div>`;
+    }
+
+    // Related Questions
+    const relatedContainer = document.getElementById('related-questions');
+    if (relatedContainer) {
+        fetch('questions.json')
+            .then(res => res.json())
+            .then(data => {
+                const related = data.filter(q => !q.url.includes(currentPath)).sort(() => 0.5 - Math.random()).slice(0, 4);
+                if (related.length > 0) {
+                    relatedContainer.innerHTML = `<h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-6">Suggested for you</h4><div class="grid md:grid-cols-2 gap-4">` + 
+                    related.map(q => `<a href="${q.url}" class="p-6 bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800/50 rounded-3xl hover:border-indigo-500 hover:shadow-2xl transition-all flex justify-between items-center group"><span class="font-bold text-slate-700 dark:text-slate-300 group-hover:text-indigo-600 transition-colors">${q.title}</span><svg class="text-slate-200 dark:text-slate-800 group-hover:text-indigo-500 transition-all" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></a>`).join('') + `</div>`;
+                }
+            }).catch(e => console.error("Error loading suggestions:", e));
     }
 });
