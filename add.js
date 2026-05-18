@@ -98,17 +98,40 @@ document.addEventListener("DOMContentLoaded", function() {
         adContainer.innerHTML = `<div class="my-10 p-6 bg-slate-50 dark:bg-slate-900/50 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-[2rem] text-center"><span class="text-[10px] font-black text-slate-300 dark:text-slate-700 uppercase tracking-widest">Advertisement</span><div class="mt-4 min-h-[120px] flex items-center justify-center text-slate-300 dark:text-slate-700 font-black italic text-xl">Your ad here</div></div>`;
     }
 
-    // Related Questions
-    const relatedContainer = document.getElementById('related-questions');
-    if (relatedContainer) {
-        fetch('questions.json')
-            .then(res => res.json())
-            .then(data => {
-                const related = data.filter(q => !q.url.includes(currentPath)).sort(() => 0.5 - Math.random()).slice(0, 4);
-                if (related.length > 0) {
-                    relatedContainer.innerHTML = `<h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-6">Suggested for you</h4><div class="grid md:grid-cols-2 gap-4">` + 
-                    related.map(q => `<a href="${q.url}" class="p-6 bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800/50 rounded-3xl hover:border-indigo-500 hover:shadow-2xl transition-all flex justify-between items-center group"><span class="font-bold text-slate-700 dark:text-slate-300 group-hover:text-indigo-600 transition-colors">${q.title}</span><svg class="text-slate-200 dark:text-slate-800 group-hover:text-indigo-500 transition-all" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></a>`).join('') + `</div>`;
-                }
-            }).catch(e => console.error("Error loading suggestions:", e));
-    }
-});
+    // --- Related Questions ---
+const relatedContainer = document.getElementById('related-questions');
+if (relatedContainer) {
+    fetch('questions.json')
+        .then(res => res.json())
+        .then(data => {
+            // 1. Filter out current page
+            // 2. Shuffle array
+            // 3. Take exactly 4
+            const related = data
+                .filter(q => !q.url.includes(currentPath))
+                .sort(() => 0.5 - Math.random())
+                .slice(0, 4);
+
+            if (related.length > 0) {
+                let html = `
+                    <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-6">Suggested for you</h4>
+                    <div class="grid md:grid-cols-2 gap-4">
+                `;
+                
+                // Map the 4 items into cards
+                html += related.map(q => `
+                    <a href="${q.url}" class="p-6 bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800/50 rounded-3xl hover:border-indigo-500 hover:shadow-2xl hover:shadow-indigo-500/10 transition-all flex justify-between items-center group">
+                        <span class="font-bold text-slate-700 dark:text-slate-300 group-hover:text-indigo-600 transition-colors line-clamp-2">${q.title}</span>
+                        <svg class="shrink-0 ml-4 text-slate-200 dark:text-slate-800 group-hover:text-indigo-500 transition-all" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                `).join('');
+                
+                html += `</div>`;
+                relatedContainer.innerHTML = html;
+            }
+        })
+        .catch(e => {
+            console.error("Related questions error:", e);
+            relatedContainer.innerHTML = ''; // Clear container on fail
+        });
+}
