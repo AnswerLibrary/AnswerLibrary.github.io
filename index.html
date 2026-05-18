@@ -11,13 +11,12 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 10px; }
-        .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-[#020617] text-slate-800 dark:text-slate-200 min-h-screen transition-colors duration-300">
     
     <!-- Scroll Progress -->
-    <div id="scroll-progress" class="fixed top-0 left-0 h-1.5 bg-indigo-600 z-[60] transition-all duration-100" style="width: 0%"></div>
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1.5 bg-indigo-600 z-[60]" style="width: 0%"></div>
     
     <!-- Header -->
     <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
@@ -35,21 +34,13 @@
     <!-- Hero -->
     <main class="max-w-5xl mx-auto px-6 py-20">
         <section class="text-center mb-20">
-            <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight">Knowledge at your <span class="text-indigo-600">fingertips</span></h1>
-            <p class="text-xl text-slate-500 max-w-2xl mx-auto">Browse through our library of curated answers to improve your daily knowledge.</p>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight text-slate-900 dark:text-white">Knowledge at your <span class="text-indigo-600">fingertips</span></h1>
+            <p class="text-xl text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Browse through our library of curated answers to improve your daily knowledge.</p>
         </section>
         
         <!-- Questions Grid -->
         <div id="questions-list" class="grid md:grid-cols-2 gap-6">
-            <!-- Content will be injected here via add.js -->
-        </div>
-
-        <!-- Scroll Sentinel (Used for Infinite Scroll) -->
-        <div id="scroll-sentinel" class="h-10 mt-10"></div>
-        
-        <!-- Loading Spinner -->
-        <div id="loading-spinner" class="hidden text-center py-10">
-            <div class="inline-block w-8 h-8 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+            <!-- Content is injected by add.js -->
         </div>
     </main>
 
@@ -67,7 +58,6 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
     </button>
 
-    <!-- Scripts -->
     <script src="add.js"></script>
 </body>
 </html>
