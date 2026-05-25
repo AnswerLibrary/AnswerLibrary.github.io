@@ -1,0 +1,6 @@
+# Robots.txt for Answer Library
+User-agent: *
+Allow: /
+
+# Sitemap Direction
+Sitemap: https://answerlibrary.github.io/sitemap.xml
