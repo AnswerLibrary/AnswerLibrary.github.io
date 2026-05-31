@@ -1,1 +1,5 @@
-answerlibrary.js.org
+{
+     "subdomain": "answerlibrary",
+     "owner": "AnswerLibrary",
+     "repo": "AnswerLibrary.github.io"
+   }
