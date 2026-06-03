@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to configure GitLab to work with OpenLDAP structures? - AnswerLibrary</title>
+    <meta name="description" content="Configure GitLab with OpenLDAP by modifying the gitlab.rb file. Set the host, port, base DN, and user filters to sync users and enable single sign-on.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>tailwind.config={darkMode:'class'}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "QAPage",
+  "mainEntity": {
+    "@type": "Question",
+    "name": "How to configure GitLab to work with OpenLDAP structures?",
+    "text": "How to configure GitLab to work with OpenLDAP structures?",
+    "answerCount": 1,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Configuring GitLab with OpenLDAP Integration\\n\\nTo connect GitLab to an OpenLDAP server, you must modify the main configuration file and define the server parameters. This allows for centralized authentication and automated user provisioning.\\n\\n 1. Open the GitLab Configuration\\nAccess your GitLab server via SSH and open the gitlab.rb file with root privileges:\\n\\nbash\\nsudo nano /etc/gitlab/gitlab.rb\\n\\n\\n 2. Define LDAP Settings\\nLocate the LDAP configuration block. Ensure ldap_enabled is set to true and provide your OpenLDAP server details under the main label. Use the following template as a guide:\\n\\nruby\\ngitlab_rails['ldap_enabled'] = true\\ngitlab_rails['ldap_servers'] = {\\n  'main' => {\\n    'label' => 'OpenLDAP',\\n    'host' => 'ldap.example.com',\\n    'port' => 389,\\n    'uid' => 'uid',\\n    'bind_dn' => 'cn=admin,dc=example,dc=com',\\n    'password' => 'your_admin_password',\\n    'encryption' => 'plain',  Use 'start_tls' or 'simple_tls' for secure connections\\n    'verify_certificates' => true,\\n    'base' => 'ou=users,dc=example,dc=com',\\n    'user_filter' => '(memberOf=cn=gitlab_access,ou=groups,dc=example,dc=com)',\\n    'attributes' => {\\n      'username' => ['uid', 'userid'],\\n      'email' => ['mail', 'email'],\\n      'name' => 'cn',\\n      'first_name' => 'givenName',\\n      'last_name' => 'sn'\\n    },\\n    'lowercase_usernames' => true\\n  }\\n}\\n\\n\\n 3. Essential Parameters Explained\\n uid: This is the attribute GitLab uses as the unique login identifier. For OpenLDAP, this is typically uid.\\n base: The Distinguished Name (DN) of the directory level where GitLab should begin searching for users.\\n user_filter: (Optional) Use this to restrict GitLab access to a specific group of users within your LDAP tree.\\n attributes: This section maps LDAP fields to GitLab profile fields, ensuring user metadata is synced correctly.\\n\\n 4. Apply Configuration\\nSave the file and run the reconfigure command to apply the new settings:\\n\\nbash\\nsudo gitlab-ctl reconfigure\\n\\n\\n 5. Test the Connection\\nVerify that GitLab can successfully communicate with your OpenLDAP server and find users by running the built-in check tool:\\n\\nbash\\nsudo gitlab-rake gitlab:ldap:check\\n\\nIf configured correctly, this command will return a list of users detected in the LDAP directory."
+    }
+  }
+}</script>
+    <style>
+        .prose h1, .prose h2, .prose h3 { font-weight: 900; tracking: -0.025em; margin-top: 2rem; margin-bottom: 1rem; }
+        .prose p { margin-bottom: 1.5rem; line-height: 1.75; font-size: 1.125rem; opacity: 0.8; }
+        .prose ul { list-style-type: disc; padding-inline-start: 1.5rem; margin-bottom: 1.5rem; }
+        .prose li { margin-bottom: 0.5rem; font-size: 1.125rem; opacity: 0.8; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-[#020617] text-slate-800 dark:text-slate-200 min-h-screen transition-colors duration-300">
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1.5 bg-indigo-600 z-[60] transition-all duration-100" style="width: 0%"></div>
+    
+    <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-indigo-600 rounded-2xl flex items-center justify-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                </div>
+                <span class="text-xl font-black text-slate-900 dark:text-white">AnswerLibrary</span>
+            </a>
+            <button onclick="toggleDarkMode()" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:scale-110 active:scale-95 transition-all">🌓</button>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-20">
+        
+    <div class="grid lg:grid-cols-12 gap-12">
+        <article class="lg:col-span-8" id="main-content">
+            <nav class="mb-12">
+                <a href="index.html" class="inline-flex items-center gap-2 text-sm font-black text-indigo-600 hover:gap-3 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Back to Library
+                </a>
+            </nav>
+            
+            <header class="mb-12">
+                <span class="inline-block px-4 py-2 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-sm font-black rounded-2xl mb-6 uppercase tracking-widest">DevOps</span>
+                <h1 class="text-4xl md:text-5xl font-black mb-8 leading-tight tracking-tight">How to configure GitLab to work with OpenLDAP structures?</h1>
+                <div class="flex items-center gap-4 text-sm font-bold text-slate-400">
+                    <span class="flex items-center gap-2 italic">By AnswerLibrary</span>
+                    <span>•</span>
+                    <span id="reading-time">Calculating...</span>
+                </div>
+            </header>
+
+            <div id="markdown-content" class="prose prose-slate dark:prose-invert max-w-none">
+                <!-- Content will be rendered here by marked -->
+                <noscript>### Configuring GitLab with OpenLDAP Integration\n\nTo connect GitLab to an OpenLDAP server, you must modify the main configuration file and define the server parameters. This allows for centralized authentication and automated user provisioning.\n\n#### 1. Open the GitLab Configuration\nAccess your GitLab server via SSH and open the `gitlab.rb` file with root privileges:\n\n```bash\nsudo nano /etc/gitlab/gitlab.rb\n```\n\n#### 2. Define LDAP Settings\nLocate the LDAP configuration block. Ensure `ldap_enabled` is set to `true` and provide your OpenLDAP server details under the `main` label. Use the following template as a guide:\n\n```ruby\ngitlab_rails['ldap_enabled'] = true\ngitlab_rails['ldap_servers'] = {\n  'main' => {\n    'label' => 'OpenLDAP',\n    'host' => 'ldap.example.com',\n    'port' => 389,\n    'uid' => 'uid',\n    'bind_dn' => 'cn=admin,dc=example,dc=com',\n    'password' => 'your_admin_password',\n    'encryption' => 'plain', # Use 'start_tls' or 'simple_tls' for secure connections\n    'verify_certificates' => true,\n    'base' => 'ou=users,dc=example,dc=com',\n    'user_filter' => '(memberOf=cn=gitlab_access,ou=groups,dc=example,dc=com)',\n    'attributes' => {\n      'username' => ['uid', 'userid'],\n      'email' => ['mail', 'email'],\n      'name' => 'cn',\n      'first_name' => 'givenName',\n      'last_name' => 'sn'\n    },\n    'lowercase_usernames' => true\n  }\n}\n```\n\n#### 3. Essential Parameters Explained\n* **uid**: This is the attribute GitLab uses as the unique login identifier. For OpenLDAP, this is typically `uid`.\n* **base**: The Distinguished Name (DN) of the directory level where GitLab should begin searching for users.\n* **user_filter**: (Optional) Use this to restrict GitLab access to a specific group of users within your LDAP tree.\n* **attributes**: This section maps LDAP fields to GitLab profile fields, ensuring user metadata is synced correctly.\n\n#### 4. Apply Configuration\nSave the file and run the reconfigure command to apply the new settings:\n\n```bash\nsudo gitlab-ctl reconfigure\n```\n\n#### 5. Test the Connection\nVerify that GitLab can successfully communicate with your OpenLDAP server and find users by running the built-in check tool:\n\n```bash\nsudo gitlab-rake gitlab:ldap:check\n```\nIf configured correctly, this command will return a list of users detected in the LDAP directory.</noscript>
+            </div>
+
+            <script>
+                document.getElementById('markdown-content').innerHTML = marked.parse(`### Configuring GitLab with OpenLDAP Integration\n\nTo connect GitLab to an OpenLDAP server, you must modify the main configuration file and define the server parameters. This allows for centralized authentication and automated user provisioning.\n\n#### 1. Open the GitLab Configuration\nAccess your GitLab server via SSH and open the \`gitlab.rb\` file with root privileges:\n\n\`\`\`bash\nsudo nano /etc/gitlab/gitlab.rb\n\`\`\`\n\n#### 2. Define LDAP Settings\nLocate the LDAP configuration block. Ensure \`ldap_enabled\` is set to \`true\` and provide your OpenLDAP server details under the \`main\` label. Use the following template as a guide:\n\n\`\`\`ruby\ngitlab_rails['ldap_enabled'] = true\ngitlab_rails['ldap_servers'] = {\n  'main' => {\n    'label' => 'OpenLDAP',\n    'host' => 'ldap.example.com',\n    'port' => 389,\n    'uid' => 'uid',\n    'bind_dn' => 'cn=admin,dc=example,dc=com',\n    'password' => 'your_admin_password',\n    'encryption' => 'plain', # Use 'start_tls' or 'simple_tls' for secure connections\n    'verify_certificates' => true,\n    'base' => 'ou=users,dc=example,dc=com',\n    'user_filter' => '(memberOf=cn=gitlab_access,ou=groups,dc=example,dc=com)',\n    'attributes' => {\n      'username' => ['uid', 'userid'],\n      'email' => ['mail', 'email'],\n      'name' => 'cn',\n      'first_name' => 'givenName',\n      'last_name' => 'sn'\n    },\n    'lowercase_usernames' => true\n  }\n}\n\`\`\`\n\n#### 3. Essential Parameters Explained\n* **uid**: This is the attribute GitLab uses as the unique login identifier. For OpenLDAP, this is typically \`uid\`.\n* **base**: The Distinguished Name (DN) of the directory level where GitLab should begin searching for users.\n* **user_filter**: (Optional) Use this to restrict GitLab access to a specific group of users within your LDAP tree.\n* **attributes**: This section maps LDAP fields to GitLab profile fields, ensuring user metadata is synced correctly.\n\n#### 4. Apply Configuration\nSave the file and run the reconfigure command to apply the new settings:\n\n\`\`\`bash\nsudo gitlab-ctl reconfigure\n\`\`\`\n\n#### 5. Test the Connection\nVerify that GitLab can successfully communicate with your OpenLDAP server and find users by running the built-in check tool:\n\n\`\`\`bash\nsudo gitlab-rake gitlab:ldap:check\n\`\`\`\nIf configured correctly, this command will return a list of users detected in the LDAP directory.`);
+            </script>
+
+            <div id="ad-slot" class="reveal"></div>
+
+            <div class="mt-20 border-t border-slate-200 dark:border-slate-800 pt-12">
+                <div id="related-questions" class="reveal"></div>
+            </div>
+        </article>
+
+        <aside class="lg:col-span-4 space-y-8">
+            <div class="bg-indigo-600 p-8 rounded-[2rem] text-white reveal shadow-2xl shadow-indigo-600/20 lg:sticky lg:top-32">
+                <h3 class="text-xl font-black mb-4">Share this Knowledge</h3>
+                <p class="text-sm opacity-90 mb-6 font-medium">Was this helpful? Share it with your friends!</p>
+                <div id="share-buttons"></div>
+                <button onclick="copyCurrentUrl()" class="w-full mt-6 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-2xl text-xs font-black uppercase tracking-widest transition-all">Copy Direct Link</button>
+            </div>
+        </aside>
+    </div>
+  
+    </main>
+
+    <footer class="py-20 border-t border-slate-200 dark:border-slate-900 text-center text-sm font-bold text-slate-400">
+        <div class="flex justify-center gap-6 mb-6">
+            <a href="about.html" class="hover:text-indigo-600">About</a>
+            <a href="privacy.html" class="hover:text-indigo-600">Privacy</a>
+        </div>
+        &copy; 2026 AnswerLibrary. All rights reserved.
+    </footer>
+
+    <button id="back-to-top" class="fixed bottom-10 right-10 w-12 h-12 bg-indigo-600 text-white rounded-2xl shadow-2xl opacity-0 invisible transition-all duration-300 hover:scale-110 flex items-center justify-center z-50">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    </button>
+
+    <script src="add.js"></script>
+</body>
+</html>
