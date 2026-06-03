@@ -3724,4 +3724,244 @@
     "url": "java-constructor-order-inheritance.html",
     "category": "Java"
   }
+, {
+    "title": "What is the specific meaning of CN, OU, and DC in LDAP search queries?",
+    "description": "Learn the meanings of CN (Common Name), OU (Organizational Unit), and DC (Domain Component) in LDAP search queries and how they form Distinguished Names (DN).",
+    "url": "ldap-cn-ou-dc-meaning-explained.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How do you interpret an LDAP path from right to left?",
+    "description": "Learn how to interpret LDAP Distinguished Names (DN) from right to left to understand directory hierarchy, moving from the domain root to specific objects.",
+    "url": "how-to-interpret-ldap-path-right-to-left.html",
+    "category": "Networking"
+  },
+  {
+    "title": "What is the difference between a Distinguished Name (DN) and a Common Name (CN)?",
+    "description": "Explore the key differences between Distinguished Name (DN) and Common Name (CN). Learn how they identify objects in LDAP directories and digital certificates.",
+    "url": "difference-between-dn-and-cn.html",
+    "category": "Security"
+  },
+  {
+    "title": "Which RFC currently defines the UTF-8 representation of Distinguished Names?",
+    "description": "Discover which RFC defines the UTF-8 representation of Distinguished Names (DNs). RFC 4514 is the current standard used for LDAP string representations.",
+    "url": "rfc-utf8-representation-distinguished-names.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How does the Directory Information Tree (DIT) structure work in LDAP?",
+    "description": "Learn how the Directory Information Tree (DIT) organizes data in LDAP. Explore DNs, RDNs, and hierarchical structures for efficient directory management.",
+    "url": "how-ldap-dit-structure-works.html",
+    "category": "Infrastructure"
+  },
+  {
+    "title": "What role does the Domain Component (DC) play in a directory hierarchy?",
+    "description": "Explore the role of Domain Component (DC) in LDAP and Active Directory hierarchies, how it maps DNS names, and its importance in Distinguished Names (LDAP/AD).",
+    "url": "role-of-domain-component-dc-directory-hierarchy.html",
+    "category": "Networking"
+  },
+  {
+    "title": "Can an LDAP search query find multiple Common Names using OR operators?",
+    "description": "Learn how to use the LDAP OR operator (|) to search for multiple Common Names (CN) in a single query. Includes syntax examples and nested filter techniques.",
+    "url": "ldap-search-query-multiple-common-names-or-operator.html",
+    "category": "LDAP"
+  },
+  {
+    "title": "What is the leaf node in an LDAP hierarchical structure?",
+    "description": "Learn about leaf nodes in LDAP hierarchical structures. Understand how these end-point entries represent users and devices within a Directory Information Tree.",
+    "url": "what-is-leaf-node-ldap-hierarchy.html",
+    "category": "Networking"
+  },
+  {
+    "title": "Why is LDAP considered a protocol rather than a directory service?",
+    "description": "Explore why LDAP is defined as a communication protocol rather than a directory service, and learn how it interacts with systems like Active Directory.",
+    "url": "why-is-ldap-a-protocol-not-a-service.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How to identify the root of a search tree in Active Directory?",
+    "description": "Learn how to identify the Active Directory search tree root using RootDSE attributes, PowerShell commands, and LDP.exe for efficient directory navigation.",
+    "url": "identify-active-directory-search-tree-root.html",
+    "category": "Networking"
+  },
+  {
+    "title": "What is the purpose of the Organizational Unit (OU) in LDAP groups?",
+    "description": "Understand the role of Organizational Units (OUs) in LDAP. Learn how they provide hierarchy, administrative delegation, and policy management in directories.",
+    "url": "purpose-of-organizational-unit-ldap.html",
+    "category": "Directory"
+  },
+  {
+    "title": "How do LDAP search filters differ from LDIF formatting?",
+    "description": "Learn the key differences between LDAP search filters and LDIF. Compare query syntax versus data representation formats for directory management and migration.",
+    "url": "ldap-search-filters-vs-ldif-formatting.html",
+    "category": "LDAP"
+  },
+  {
+    "title": "What happens if you search LDAP using a partial Distinguished Name?",
+    "description": "Discover what happens when searching LDAP with a partial Distinguished Name, including error codes, base DN requirements, and how to use search filters instead.",
+    "url": "ldap-search-partial-distinguished-name.html",
+    "category": "LDAP"
+  },
+  {
+    "title": "How to represent a state or province name in an LDAP string?",
+    "description": "Learn how to use the 'st' or 'stateOrProvinceName' attribute in LDAP to represent states and provinces correctly within your directory service structure.",
+    "url": "how-to-represent-state-province-ldap.html",
+    "category": "LDAP"
+  },
+  {
+    "title": "Are LDAP attribute types like UID and STREET part of X.500 specifications?",
+    "description": "Learn whether LDAP attribute types like UID and STREET are part of X.500 specifications and how RFC 4519 and X.520 define these directory service attributes.",
+    "url": "ldap-attribute-types-x500-specifications.html",
+    "category": "Protocols"
+  },
+  {
+    "title": "What is the fully qualified name of an entry in an LDAP directory?",
+    "description": "Learn about the Distinguished Name (DN) in LDAP, the fully qualified name that uniquely identifies directory entries using RDNs and hierarchical paths.",
+    "url": "what-is-ldap-distinguished-name-dn.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How to perform an LDAP substring search using the star operator?",
+    "description": "Learn how to use the asterisk (*) operator in LDAP filters for substring searches, including starts-with, ends-with, and contains pattern matching.",
+    "url": "ldap-substring-search-star-operator.html",
+    "category": "LDAP"
+  },
+  {
+    "title": "Why was RFC2253 superseded by RFC4514 for directory names?",
+    "description": "Learn why RFC 4514 replaced RFC 2253 for LDAP Distinguished Names, covering technical clarifications, improved escaping, and modern UTF-8 standards.",
+    "url": "why-rfc4514-superseded-rfc2253.html",
+    "category": "Networking"
+  },
+  {
+    "title": "What is a base suffix in an LDAP search context?",
+    "description": "A base suffix, or Base DN, is the starting Distinguished Name in an LDAP directory tree where a search operation begins to locate specific entries.",
+    "url": "what-is-ldap-base-suffix.html",
+    "category": "Networking"
+  },
+  {
+    "title": "How do you differentiate between a leaf and a branch in a DIT?",
+    "description": "Differentiate between a leaf and a branch in a Directory Information Tree (DIT) by looking at hierarchical positioning, child nodes, and object classes.",
+    "url": "how-to-differentiate-leaf-branch-dit.html",
+    "category": "LDAP"
+  },
+  {
+    "title": "How to use nslookup to find a domain's LDAP server information?",
+    "description": "Learn how to use nslookup to find a domain's LDAP server information by querying DNS SRV records. Discover the specific commands for locating directory services.",
+    "url": "how-to-use-nslookup-find-ldap-server-info.html",
+    "category": "Networking"
+  },
+  {
+    "title": "What is the command to access ADSI Edit via the Microsoft Management Console?",
+    "description": "Learn the command to launch ADSI Edit (adsiedit.msc) via the Microsoft Management Console for advanced Active Directory object management and troubleshooting.",
+    "url": "command-access-adsi-edit-mmc.html",
+    "category": "SysAdmin"
+  },
+  {
+    "title": "How can I search by distinguishedName directly in Active Directory?",
+    "description": "Learn how to search for objects using their distinguishedName in Active Directory using PowerShell, LDAP filters, and ADUC for efficient directory management.",
+    "url": "search-by-distinguishedname-active-directory.html",
+    "category": "Administration"
+  },
+  {
+    "title": "What does LDAP error code 32 signify regarding remaining names?",
+    "description": "LDAP error code 32 (LDAP_NO_SUCH_OBJECT) explained. Learn about remaining names, matched DNs, common causes like typos, and troubleshooting directory paths.",
+    "url": "ldap-error-code-32-remaining-names.html",
+    "category": "LDAP"
+  },
+  {
+    "title": "How to configure GitLab to work with OpenLDAP structures?",
+    "description": "Configure GitLab with OpenLDAP by modifying the gitlab.rb file. Set the host, port, base DN, and user filters to sync users and enable single sign-on.",
+    "url": "configure-gitlab-openldap-integration.html",
+    "category": "DevOps"
+  },
+  {
+    "title": "Can I query Active Directory in Java 17 for user authentication?",
+    "description": "Learn how to authenticate users against Active Directory using Java 17 with JNDI or Spring Security. Includes code examples and best practices for LDAPS.",
+    "url": "query-active-directory-java-17-authentication.html",
+    "category": "Java"
+  },
+  {
+    "title": "How to troubleshoot empty search results when querying an OU?",
+    "description": "Troubleshoot and resolve empty search results when querying an Organizational Unit (OU). Learn about DN syntax, search scopes, and permission requirements.",
+    "url": "troubleshoot-empty-ou-search-results.html",
+    "category": "ActiveDirectory"
+  },
+  {
+    "title": "What tool is best for visualizing the structure of an Active Directory tree?",
+    "description": "Discover the best tools for visualizing Active Directory tree structures, featuring Sysinternals ADExplorer, BloodHound for security, and ADManager Plus for reporting.",
+    "url": "best-active-directory-visualization-tools.html",
+    "category": "Administration"
+  },
+  {
+    "title": "How to use the pipe symbol for multiple search criteria in LDAP?",
+    "description": "Learn how to use the pipe symbol (|) as a logical OR operator in LDAP search filters. Includes syntax examples, nesting tips, and query best practices.",
+    "url": "ldap-pipe-symbol-multiple-search-criteria.html",
+    "category": "LDAP"
+  },
+  {
+    "title": "What is the visual representation of an LDAP search path?",
+    "description": "Explore the visual representation of LDAP search paths through the Directory Information Tree (DIT), understanding Base DNs, OUs, and Distinguished Names.",
+    "url": "visual-representation-of-ldap-search-path.html",
+    "category": "Directory"
+  },
+  {
+    "title": "How to verify a user in LDAP using a default base query?",
+    "description": "Learn how to verify user credentials in LDAP using a default base query. This guide covers searching for DNs and performing authentication via bind operations.",
+    "url": "how-to-verify-user-ldap-base-query.html",
+    "category": "Authentication"
+  },
+  {
+    "title": "What is the relationship between X.509 certificates and X.500 LDAP?",
+    "description": "Learn about the foundational link between X.509 certificates and X.500 directory standards, including the role of LDAP in managing PKI naming and storage.",
+    "url": "relationship-between-x509-certificates-and-x500-ldap.html",
+    "category": "Security"
+  },
+  {
+    "title": "How to get only real user entries using a DirectorySearcher query?",
+    "description": "Learn how to query real user accounts in Active Directory using DirectorySearcher. Filter out computers and disabled accounts using optimized LDAP strings.",
+    "url": "how-to-get-only-real-users-directorysearcher-query.html",
+    "category": "ActiveDirectory"
+  },
+  {
+    "title": "What are the common key-value pairs used in an LDIF file?",
+    "description": "Learn the most common key-value pairs used in LDIF files, including dn, objectClass, cn, and uid, to structure and manage LDAP directory data effectively.",
+    "url": "common-ldif-key-value-pairs.html",
+    "category": "LDAP"
+  },
+  {
+    "title": "How to retrieve user data from Microsoft Graph using LDAP-like logic?",
+    "description": "Learn how to query Microsoft Graph API for user data using OData filters to replicate LDAP-like logic in Entra ID for efficient directory management.",
+    "url": "how-to-retrieve-user-data-microsoft-graph-ldap-logic.html",
+    "category": "Development"
+  },
+  {
+    "title": "Is it possible to filter LDAP groups by a partial common name?",
+    "description": "Learn how to filter LDAP groups using partial common names with wildcards. Understand the syntax for prefix, suffix, and substring searches in LDAP queries.",
+    "url": "filter-ldap-groups-partial-common-name.html",
+    "category": "LDAP"
+  },
+  {
+    "title": "What is the difference between L (locality) and C (country) in LDAP strings?",
+    "description": "Learn the differences between the L (Locality) and C (Country) attributes in LDAP, including their OIDs, formatting standards, and usage in directory services.",
+    "url": "difference-between-l-locality-and-c-country-ldap.html",
+    "category": "LDAP"
+  },
+  {
+    "title": "How to navigate a Directory Information Tree using attribute-value pairs?",
+    "description": "Learn how to navigate a Directory Information Tree (DIT) using attribute-value pairs like DNs and RDNs to locate entries in LDAP or X.500 directory services.",
+    "url": "navigate-directory-information-tree-attribute-value-pairs.html",
+    "category": "LDAP"
+  },
+  {
+    "title": "Can LDAP queries be used to manage distribution groups in Windows?",
+    "description": "Learn how to manage Windows distribution groups using LDAP queries. This guide covers LDAP filters for groupType and how to modify group membership attributes.",
+    "url": "manage-distribution-groups-ldap.html",
+    "category": "ActiveDirectory"
+  },
+  {
+    "title": "How to find the root Domain Component of a global organization in LDAP?",
+    "description": "Learn how to find the root Domain Component (DC) of a global organization in LDAP using ldapsearch, RootDSE queries, and PowerShell commands for Active Directory.",
+    "url": "how-to-find-root-domain-component-ldap.html",
+    "category": "Networking"
+  }
 ]
