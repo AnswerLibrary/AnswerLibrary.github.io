@@ -3484,4 +3484,244 @@
     "url": "best-star-themed-usernames-celestial-aesthetic.html",
     "category": "Social"
   }
+,{
+    "title": "How do I fix the 'constructor in class cannot be applied to given types' error in Java?",
+    "description": "Learn how to fix the 'constructor in class cannot be applied to given types' error in Java. Understand missing constructors, type mismatches, and super() calls.",
+    "url": "fix-java-constructor-cannot-be-applied-error.html",
+    "category": "Java"
+  },
+  {
+    "title": "What happens if a Java subclass does not call the super() constructor explicitly?",
+    "description": "Learn what happens when a Java subclass omits the super() call. Understand implicit constructor chaining, no-arg constructor requirements, and common errors.",
+    "url": "java-subclass-no-explicit-super-call.html",
+    "category": "Java"
+  },
+  {
+    "title": "How to pass multiple parameters to a parent class constructor in Java inheritance?",
+    "description": "Learn how to use the super keyword in Java to pass multiple parameters to a parent class constructor. Master inheritance and constructor chaining with examples.",
+    "url": "java-pass-multiple-parameters-parent-constructor.html",
+    "category": "Java"
+  },
+  {
+    "title": "Why are private instance variables in a superclass not accessible by name in a subclass?",
+    "description": "Learn why private variables in a superclass are hidden from subclasses due to encapsulation and how to access them safely using methods or protected modifiers.",
+    "url": "why-private-instance-variables-not-accessible-subclass.html",
+    "category": "Programming"
+  },
+  {
+    "title": "What is the correct way to initialize private fields in a Java Clothing class?",
+    "description": "Learn the best practices for initializing private fields in a Java Clothing class using constructors and the this keyword to ensure robust encapsulation.",
+    "url": "initialize-private-fields-java-clothing-class.html",
+    "category": "Java"
+  },
+  {
+    "title": "How to resolve 'actual and formal argument lists differ in length' in Java constructors?",
+    "description": "Fix the 'actual and formal argument lists differ in length' Java error by matching constructor parameters and defining missing no-arg constructors.",
+    "url": "resolve-java-actual-formal-argument-length-mismatch.html",
+    "category": "Java"
+  },
+  {
+    "title": "Should I redeclare variables in a subclass if they already exist in the superclass?",
+    "description": "Learn why redeclaring variables in a subclass (field hiding) is bad practice in OOP. Understand how shadowing affects polymorphism and code maintainability.",
+    "url": "redeclaring-variables-subclass-inheritance.html",
+    "category": "Programming"
+  },
+  {
+    "title": "How to implement getter methods for a TShirt fabric field in Java?",
+    "description": "Learn how to implement a getter method for the fabric field in a Java TShirt class. Follow encapsulation best practices to safely access private object data.",
+    "url": "how-to-implement-java-tshirt-fabric-getter.html",
+    "category": "Java"
+  },
+  {
+    "title": "What is the difference between this.variable and ParameterName in Java constructors?",
+    "description": "Understand the difference between this.variable and ParameterName in Java, focusing on variable shadowing, scope, and proper constructor initialization.",
+    "url": "java-constructor-this-vs-parameter.html",
+    "category": "Java"
+  },
+  {
+    "title": "How to set a default constant value in a Java subclass constructor like Jeans color?",
+    "description": "Learn how to initialize a Java subclass with a default constant value using the super keyword. Perfect for setting fixed properties like a default color.",
+    "url": "set-default-constant-java-subclass-constructor.html",
+    "category": "Java"
+  },
+  {
+    "title": "What are the rules for extending an abstract Clothing class in Java?",
+    "description": "Learn the core rules for extending an abstract Clothing class in Java, including implementing abstract methods, using super constructors, and access modifiers.",
+    "url": "extending-abstract-clothing-class-java-rules.html",
+    "category": "Java"
+  },
+  {
+    "title": "How to use the @Override annotation with toString in a clothing hierarchy?",
+    "description": "Learn how to use the @Override annotation with the toString method in a Java clothing hierarchy for better debugging and cleaner object representation.",
+    "url": "how-to-use-override-tostring-clothing-hierarchy.html",
+    "category": "Programming"
+  },
+  {
+    "title": "Can a Java constructor be inherited by a subclass?",
+    "description": "Learn why Java constructors are not inherited by subclasses. Understand the role of the super keyword, class naming rules, and the object initialization chain.",
+    "url": "can-java-constructor-be-inherited.html",
+    "category": "Java"
+  },
+  {
+    "title": "How to handle boolean getter methods like hasHood() in Java coding standards?",
+    "description": "Learn the best practices for naming boolean getter methods in Java, including the use of is, has, and can prefixes according to JavaBeans and industry standards.",
+    "url": "java-boolean-getter-naming-standards.html",
+    "category": "Development"
+  },
+  {
+    "title": "Why does CodeHS Java Mocha throw errors on super() calls?",
+    "description": "Learn why CodeHS Java Mocha throws errors on super() calls. Common causes include placement, parameter mismatches, and missing parent class constructors.",
+    "url": "codehs-java-mocha-super-call-errors.html",
+    "category": "Java"
+  },
+  {
+    "title": "How to properly format a constructor for a Sweatshirt class in Java?",
+    "description": "Learn the best practices for formatting a Sweatshirt class constructor in Java. This tutorial covers parameters, the this keyword, and basic class structure.",
+    "url": "java-sweatshirt-class-constructor-formatting.html",
+    "category": "Java"
+  },
+  {
+    "title": "What is variable shadowing in Java inheritance and how to avoid it?",
+    "description": "Learn about variable shadowing in Java inheritance, how field hiding differs from method overriding, and best practices to avoid it using encapsulation.",
+    "url": "variable-shadowing-java-inheritance-avoidance.html",
+    "category": "Java"
+  },
+  {
+    "title": "How to fix 'could not find or load main class ClothingTester'?",
+    "description": "Learn how to resolve the 'Could not find or load main class ClothingTester' Java error by checking your compilation, classpath, and package declarations.",
+    "url": "how-to-fix-could-not-find-or-load-main-class-clothingtester.html",
+    "category": "Java"
+  },
+  {
+    "title": "Best practices for naming Java constructor parameters to avoid case-sensitivity confusion.",
+    "description": "Learn the best practices for naming Java constructor parameters, including using the 'this' keyword, avoiding prefixes, and following camelCase conventions.",
+    "url": "java-constructor-parameter-naming-best-practices.html",
+    "category": "Programming"
+  },
+  {
+    "title": "How to design a multi-level class hierarchy for a clothing store application?",
+    "description": "Learn how to design a multi-level class hierarchy for a clothing store app using Object-Oriented Programming principles for better scalability and clean code.",
+    "url": "clothing-store-class-hierarchy-design.html",
+    "category": "Programming"
+  },
+  {
+    "title": "CodeHS 4.12.4 Clothing Store exercise solution walkthrough.",
+    "description": "Master the CodeHS 4.12.4 Clothing Store exercise with this step-by-step guide. Learn Java inheritance, super constructors, and object-oriented programming.",
+    "url": "codehs-4-12-4-clothing-store-solution.html",
+    "category": "Programming"
+  },
+  {
+    "title": "How to use super(size, color) in a Java TShirt class?",
+    "description": "Learn how to use the super keyword in a Java TShirt class to pass size and color to a parent constructor. Essential for Java inheritance and clean code.",
+    "url": "java-tshirt-class-super-usage.html",
+    "category": "Java"
+  },
+  {
+    "title": "Java code for Jeans class extending Clothing with default blue color.",
+    "description": "Learn how to create a Java Jeans class extending Clothing. This tutorial covers inheritance, constructors, and setting a default blue color in Java code.",
+    "url": "java-jeans-class-extending-clothing-default-color.html",
+    "category": "Programming"
+  },
+  {
+    "title": "Common syntax errors in CodeHS AP Computer Science Java Mocha lessons.",
+    "description": "Learn to identify and fix common syntax errors in CodeHS AP Computer Science A Java Mocha lessons, from missing semicolons to case sensitivity issues.",
+    "url": "common-syntax-errors-codehs-java-mocha.html",
+    "category": "Programming"
+  },
+  {
+    "title": "How to write the Clothing.java abstract class for Unit 4 CodeHS?",
+    "description": "Learn how to write the Clothing.java abstract class for CodeHS Unit 4. This guide covers abstract class syntax, constructors, and instance variables for Java.",
+    "url": "how-to-write-clothing-java-abstract-class-codehs.html",
+    "category": "Java"
+  },
+  {
+    "title": "Why does my Sweatshirt class need a boolean hasHood field?",
+    "description": "Discover why the hasHood boolean field is crucial for the Sweatshirt class in OOP, focusing on data modeling, business logic, and inventory management.",
+    "url": "sweatshirt-class-boolean-hashood-purpose.html",
+    "category": "Programming"
+  },
+  {
+    "title": "Troubleshooting Java constructor mismatch in object-oriented programming.",
+    "description": "Learn how to identify and resolve Java constructor mismatch errors. Explore common causes like missing default constructors and parameter type conflicts.",
+    "url": "troubleshooting-java-constructor-mismatch.html",
+    "category": "Java"
+  },
+  {
+    "title": "How to call a parent constructor with fixed values in Java?",
+    "description": "Learn how to use the super keyword in Java to call a parent constructor with fixed values. Understand the rules, syntax, and see practical code examples.",
+    "url": "how-to-call-parent-constructor-fixed-values-java.html",
+    "category": "Java"
+  },
+  {
+    "title": "What is the purpose of accessor methods in the Clothing Store Java project?",
+    "description": "Learn why accessor methods (getters) are essential in a Clothing Store Java project for encapsulation, data security, and managing object attributes like price.",
+    "url": "purpose-of-accessor-methods-clothing-store-java.html",
+    "category": "Java"
+  },
+  {
+    "title": "How to fix 'constructor Clothing in class Clothing cannot be applied' error.",
+    "description": "Learn how to resolve the 'constructor cannot be applied' error in Java. Understand why parameter mismatches and missing super() calls cause this error.",
+    "url": "fix-constructor-clothing-cannot-be-applied-error.html",
+    "category": "Programming"
+  },
+  {
+    "title": "Example of TShirt class with size, color, and fabric parameters in Java.",
+    "description": "Learn how to create a Java TShirt class with size, color, and fabric parameters. This tutorial covers constructors, encapsulation, and overriding the toString method.",
+    "url": "java-tshirt-class-example.html",
+    "category": "Java"
+  },
+  {
+    "title": "Why should I use this.size = size instead of size = size in Java?",
+    "description": "Learn why this.size = size is necessary in Java to resolve variable shadowing and correctly initialize instance fields within constructors and setter methods.",
+    "url": "java-this-keyword-vs-variable-shadowing.html",
+    "category": "Java"
+  },
+  {
+    "title": "How to structure a Java class that represents different pieces of clothing?",
+    "description": "Learn how to structure Java classes for clothing items using inheritance, enums, and encapsulation. Includes code examples for shirts, pants, and best practices.",
+    "url": "structuring-java-clothing-classes.html",
+    "category": "Java"
+  },
+  {
+    "title": "Java inheritance: required String, String but found no arguments error fix.",
+    "description": "Solve the Java inheritance error 'required String, String but found no arguments' by correctly implementing the super() constructor call in your subclass.",
+    "url": "java-inheritance-required-string-found-no-arguments-error-fix.html",
+    "category": "Java"
+  },
+  {
+    "title": "How to implement public boolean hasHood() in a Sweatshirt class?",
+    "description": "Learn how to implement the public boolean hasHood() method in a Java Sweatshirt class using standard encapsulation and naming conventions for boolean getters.",
+    "url": "implement-hashood-method-java-sweatshirt.html",
+    "category": "Programming"
+  },
+  {
+    "title": "Designing a Java ClothingTester class to verify inheritance logic.",
+    "description": "Learn how to build a Java ClothingTester class to validate inheritance, polymorphism, and class hierarchies. Perfect for beginners mastering Java OOP concepts.",
+    "url": "java-clothingtester-inheritance-logic.html",
+    "category": "Programming"
+  },
+  {
+    "title": "CodeHS mocha stage 4.12.4 help and debugging tips.",
+    "description": "Get expert help and debugging tips for CodeHS Stage 4.12.4 Mocha testing. Learn how to write better unit tests and solve common errors in your code today.",
+    "url": "codehs-mocha-4-12-4-debugging-tips.html",
+    "category": "Programming"
+  },
+  {
+    "title": "Difference between TShirt and Sweatshirt instance variables in Java.",
+    "description": "Compare TShirt and Sweatshirt instance variables in Java. Learn to define unique attributes like hoods, fleece lining, and sleeve types for your Java classes.",
+    "url": "difference-between-tshirt-and-sweatshirt-instance-variables-java.html",
+    "category": "Java"
+  },
+  {
+    "title": "How to initialize a Jeans object with only the size parameter in Java?",
+    "description": "Learn how to initialize a Java object using a single-parameter constructor. This guide shows you how to create a Jeans class with a custom size initializer.",
+    "url": "how-to-initialize-jeans-object-only-size-java.html",
+    "category": "Java"
+  },
+  {
+    "title": "Why is the constructor order important when using the extends keyword in Java?",
+    "description": "Learn why Java mandates superclass constructors execute before subclass constructors to ensure proper object initialization, state integrity, and hierarchy.",
+    "url": "java-constructor-order-inheritance.html",
+    "category": "Java"
+  }
 ]
