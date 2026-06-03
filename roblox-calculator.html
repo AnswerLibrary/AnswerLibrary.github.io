@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Tax Calculator & Robux to USD Converter (Live DevEx Rates)</title>
+    <meta name="description" content="Calculate Roblox marketplace tax (30% fee) on your gamepasses and items. Convert Robux to USD instantly with our live Robux tax calculator tool.">
+    
+    <!-- Open Graph Meta Tags for SEO -->
+    <meta property="og:title" content="Roblox Tax Calculator & Robux to USD Converter">
+    <meta property="og:description" content="Calculate Roblox tax on gamepasses and convert Robux to USD instantly using our live calculator tool.">
+    <meta property="og:type" content="website">
+
+    <!-- Schema Markup (JSON-LD) - SoftwareApplication & FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://answerlibrary.github.io/roblox-calculator.html#application",
+          "name": "Roblox Tax & Robux Calculator",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "All",
+          "browserRequirements": "Requires HTML5 and JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "An interactive utility to calculate the 30% Roblox marketplace tax and convert Robux to real USD value using official Developer Exchange (DevEx) rates."
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://answerlibrary.github.io/roblox-calculator.html#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How does the Roblox tax work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Roblox takes a 30% marketplace fee (tax) on all user-created items, shirts, pants, and gamepasses sold in the catalog or in-game. The creator receives the remaining 70% of the sale price."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the formula to calculate Roblox tax?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To find how much you will receive after the 30% tax, multiply the listing price by 0.7. If you want to receive a specific amount, divide your target payout by 0.7 to find the price you must list the item for."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much USD is 100,000 Robux worth?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Under the official Roblox Developer Exchange (DevEx) program, 100,000 Robux is worth exactly $350.00 USD, calculated at a rate of $0.0035 per Robux."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { 
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-[#f8fafc] dark:bg-[#0b0f19] text-slate-800 dark:text-slate-200 min-h-screen transition-colors duration-300 flex flex-col font-sans relative overflow-x-hidden">
+    
+    <!-- Ambient Background Glow -->
+    <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-500/5 dark:bg-indigo-600/5 blur-[120px] pointer-events-none z-0"></div>
+    <div class="absolute top-[30%] right-[-10%] w-[400px] h-[400px] rounded-full bg-cyan-500/5 dark:bg-sky-600/5 blur-[120px] pointer-events-none z-0"></div>
+
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-indigo-600 z-[60]" style="width: 0%"></div>
+    
+    <!-- Top Navigation -->
+    <header class="bg-white/80 dark:bg-[#111827]/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center gap-2.5 shrink-0">
+                <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white shadow-md shadow-indigo-600/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                </div>
+                <span class="text-lg font-black text-slate-900 dark:text-white tracking-tight">AnswerLibrary</span>
+            </a>
+            <button onclick="toggleDarkMode()" class="w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors text-sm" aria-label="Toggle Dark Mode">🌓</button>
+        </div>
+    </header>
+
+    <!-- Main Container Layout -->
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-6 flex-grow w-full flex gap-6 z-10">
+        
+        <!-- Left Sidebar Navigation -->
+        <aside class="w-64 shrink-0 hidden lg:flex flex-col gap-6">
+            <nav class="bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/60 dark:border-slate-800/60 p-4 flex flex-col gap-1 shadow-sm">
+                <a href="index.html" class="flex items-center gap-3 px-3 py-2 text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-xl transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    Home
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm font-bold text-indigo-600 bg-indigo-50/50 dark:bg-indigo-950/30 rounded-xl transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    Roblox Calculator
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Column (Tool & Content) -->
+        <main class="flex-grow max-w-3xl flex flex-col gap-8">
+            
+            <!-- TOOL SECTION (الأداة التفاعلية) -->
+            <section class="bg-white dark:bg-[#111827] rounded-3xl border border-slate-200/60 dark:border-slate-800/60 p-6 md:p-8 shadow-sm">
+                <div class="mb-6">
+                    <span class="px-2.5 py-1 text-[10px] font-black uppercase tracking-wider rounded-md bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 border border-indigo-100/30">
+                        Interactive Utility
+                    </span>
+                    <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-3 mb-2 leading-tight">
+                        Roblox Tax & DevEx Calculator
+                    </h1>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">
+                        Estimate market fee payouts, price your gamepasses, or convert Robux to real USD value.
+                    </p>
+                </div>
+
+                <!-- Tabs to switch Modes -->
+                <div class="flex gap-2 bg-slate-100 dark:bg-slate-900 p-1 rounded-xl mb-6 border border-slate-200/40 dark:border-slate-800/50">
+                    <button 
+                        onclick="switchCalcMode('tax')" 
+                        id="tab-tax"
+                        class="flex-1 py-2 text-xs font-bold rounded-lg transition-all bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm"
+                    >
+                        📊 Robux Tax Calculator
+                    </button>
+                    <button 
+                        onclick="switchCalcMode('devex')" 
+                        id="tab-devex"
+                        class="flex-1 py-2 text-xs font-semibold rounded-lg transition-all text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400"
+                    >
+                        💸 Robux to USD Converter
+                    </button>
+                </div>
+
+                <!-- Interactive Fields -->
+                <div id="tax-fields" class="flex flex-col gap-4 mb-6">
+                    <!-- Toggle input direction for Tax -->
+                    <div class="flex items-center gap-4 mb-2">
+                        <label class="inline-flex items-center cursor-pointer">
+                            <input type="radio" name="tax-direction" value="list" checked onchange="calculateTax()" class="form-radio text-indigo-600">
+                            <span class="ml-2 text-xs font-bold text-slate-500 dark:text-slate-400">Calculate from Listing Price</span>
+                        </label>
+                        <label class="inline-flex items-center cursor-pointer">
+                            <input type="radio" name="tax-direction" value="desire" onchange="calculateTax()" class="form-radio text-indigo-600">
+                            <span class="ml-2 text-xs font-bold text-slate-500 dark:text-slate-400">Calculate from Desired Payout</span>
+                        </label>
+                    </div>
+
+                    <div>
+                        <label id="input-label-tax" class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+                            Enter Item Price (Robux)
+                        </label>
+                        <input 
+                            type="number" 
+                            id="tax-input" 
+                            value="1000" 
+                            oninput="calculateTax()"
+                            placeholder="Enter amount in Robux" 
+                            class="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-all text-slate-900 dark:text-white font-mono"
+                        >
+                    </div>
+
+                    <!-- Outputs for Tax Mode -->
+                    <div class="grid grid-cols-2 gap-4 mt-2">
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800/50">
+                            <span class="block text-[10px] font-bold text-slate-400 uppercase">You Receive (70%)</span>
+                            <span id="tax-payout" class="text-xl font-black text-emerald-500 font-mono">700</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800/50">
+                            <span class="block text-[10px] font-bold text-slate-400 uppercase">Roblox Tax (30%)</span>
+                            <span id="tax-fee" class="text-xl font-black text-rose-500 font-mono">300</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevEx Fields (Hidden initially) -->
+                <div id="devex-fields" class="flex flex-col gap-4 mb-6 hidden">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+                            Enter Robux Amount
+                        </label>
+                        <input 
+                            type="number" 
+                            id="devex-robux" 
+                            value="100000" 
+                            oninput="convertRobuxToUsd()"
+                            placeholder="Enter Robux" 
+                            class="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-all text-slate-900 dark:text-white font-mono"
+                        >
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-gradient-to-br from-indigo-50 to-indigo-100/30 dark:from-indigo-950/20 dark:to-slate-900 border border-indigo-100/30 dark:border-indigo-950/50 flex flex-col items-center justify-center text-center">
+                        <span class="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-1">Developer Exchange (DevEx) Payout</span>
+                        <span id="devex-output" class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white font-mono">$350.00</span>
+                        <span class="text-[10px] text-slate-400 mt-2">Calculated at standard DevEx rate of $0.0035 per 1 Robux.</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEO ARTICLE SECTION -->
+            <article class="bg-white dark:bg-[#111827] rounded-3xl border border-slate-200/60 dark:border-slate-800/60 p-6 md:p-8 shadow-sm prose prose-slate dark:prose-invert max-w-none">
+                
+                <h2 class="text-2xl font-black mb-4 mt-0">What is the Roblox Marketplace Fee (Tax)?</h2>
+                <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                    In the Roblox ecosystem, when a developer sells shirts, pants, gamepasses, or developer products, Roblox takes a standard <strong>30% marketplace fee</strong> (commonly referred to by players as the **Roblox tax**). 
+                    This leaves the developer with <strong>70% of the revenue</strong>. Utilizing a precise <strong>roblox tax calculator</strong> ensures you always set the exact catalog pricing to reach your desired in-game profit goals.
+                </p>
+
+                <h2 class="text-2xl font-black mb-4">How to Calculate Roblox Tax Manually (Formula)</h2>
+                <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                    Understanding the mathematics behind the <strong>robux tax calculator</strong> is simple. There are two primary formulas depending on your calculation perspective:
+                </p>
+                
+                <ul class="list-disc pl-6 mb-6 text-slate-600 dark:text-slate-400 space-y-2">
+                    <li><strong>Finding your payout:</strong> If you list a gamepass for <em>Price P</em>, your payout will be: <code class="font-mono">Payout = P * 0.70</code></li>
+                    <li><strong>Finding the required listing price:</strong> If you want to receive a specific amount <em>Desired D</em>, the price to list it in the store is: <code class="font-mono">Listing Price = D / 0.70</code></li>
+                </ul>
+
+                <!-- Reference Table (SEO Rich Snippets booster) -->
+                <div class="overflow-x-auto my-6 border border-slate-100 dark:border-slate-800 rounded-xl">
+                    <table class="w-full text-left text-sm">
+                        <thead>
+                            <tr class="bg-slate-50 dark:bg-slate-900/50 border-b border-slate-100 dark:border-slate-800">
+                                <th class="p-4 font-bold">Listing Price (Robux)</th>
+                                <th class="p-4 font-bold">You Keep (70%)</th>
+                                <th class="p-4 font-bold text-rose-500">Roblox Fee (30%)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                            <tr>
+                                <td class="p-4 font-mono">100 Robux</td>
+                                <td class="p-4 font-mono">70 Robux</td>
+                                <td class="p-4 font-mono text-rose-500">30 Robux</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-mono">1,000 Robux</td>
+                                <td class="p-4 font-mono">700 Robux</td>
+                                <td class="p-4 font-mono text-rose-500">300 Robux</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-mono">10,000 Robux</td>
+                                <td class="p-4 font-mono">7,000 Robux</td>
+                                <td class="p-4 font-mono text-rose-500">3,000 Robux</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 class="text-2xl font-black mb-4">Using the Robux to USD Converter (DevEx Rates)</h2>
+                <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                    Once you accumulate Robux from sales, you can cash out real fiat money via the Roblox Developer Exchange (DevEx) program. 
+                    Our built-in <strong>robux converter</strong> uses the current DevEx exchange rate, which is set at **$0.0035 USD per 1 Robux** (or $350.00 USD per 100,000 Robux). 
+                    Our dynamic <strong>roblox calculator</strong> simplifies the monetization math, helping developers quickly evaluate the dollar value of their digital earnings.
+                </p>
+
+                <!-- FAQ Section to boost FAQ rich snippets -->
+                <h2 class="text-2xl font-black mb-4">Frequently Asked Questions</h2>
+                <div class="space-y-4">
+                    <div class="border-b border-slate-100 dark:border-slate-800 pb-4">
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1">What is the minimum Robux required to cash out (DevEx)?</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">To qualify for the Roblox Developer Exchange program, you must have a minimum of 30,000 earned Robux in your account, be a Premium member, and have a verified account in good standing.</p>
+                    </div>
+                    <div class="border-b border-slate-100 dark:border-slate-800 pb-4">
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1">Why does Roblox take a 30% tax?</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">The 30% marketplace fee is retained by Roblox to support global server hosting, maintenance, engine development, payment processing fees, and platform infrastructure overhead.</p>
+                    </div>
+                </div>
+
+            </article>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-200 dark:border-slate-900 text-center bg-white dark:bg-[#111827] z-10">
+        <div class="flex justify-center gap-6 mb-3">
+            <a href="about.html" class="text-xs font-bold text-slate-400 hover:text-indigo-600 transition-colors">About</a>
+            <a href="privacy.html" class="text-xs font-bold text-slate-400 hover:text-indigo-600 transition-colors">Privacy</a>
+        </div>
+        <p class="text-[9px] font-bold text-slate-400 dark:text-slate-600 uppercase tracking-widest">&copy; 2026 AnswerLibrary. All rights reserved.</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-11 h-11 bg-indigo-600 text-white rounded-xl shadow-lg opacity-0 invisible transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center z-50" aria-label="Scroll back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    </button>
+
+    <!-- JS Calculator Logic -->
+    <script>
+        // Theme Management
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+
+        function toggleDarkMode() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        // Scroll Progress Bar
+        const progress = document.getElementById('scroll-progress');
+        const btt = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            const winS = window.pageYOffset;
+            const total = document.documentElement.scrollHeight - window.innerHeight;
+            if (progress) progress.style.width = (winS / total) * 100 + "%";
+            if (btt) {
+                btt.classList.toggle('opacity-100', winS > 500);
+                btt.classList.toggle('visible', winS > 500);
+                btt.classList.toggle('opacity-0', winS <= 500);
+                btt.classList.toggle('invisible', winS <= 500);
+            }
+        });
+        if (btt) btt.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Calculator Modes
+        let activeMode = 'tax'; // 'tax' or 'devex'
+
+        function switchCalcMode(mode) {
+            activeMode = mode;
+            
+            const tabTax = document.getElementById('tab-tax');
+            const tabDevex = document.getElementById('tab-devex');
+            const taxFields = document.getElementById('tax-fields');
+            const devexFields = document.getElementById('devex-fields');
+
+            if (mode === 'tax') {
+                tabTax.className = "flex-1 py-2 text-xs font-bold rounded-lg transition-all bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm";
+                tabDevex.className = "flex-1 py-2 text-xs font-semibold rounded-lg transition-all text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400";
+                taxFields.classList.remove('hidden');
+                devexFields.classList.add('hidden');
+                calculateTax();
+            } else {
+                tabDevex.className = "flex-1 py-2 text-xs font-bold rounded-lg transition-all bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm";
+                tabTax.className = "flex-1 py-2 text-xs font-semibold rounded-lg transition-all text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400";
+                taxFields.classList.add('hidden');
+                devexFields.classList.remove('hidden');
+                convertRobuxToUsd();
+            }
+        }
+
+        function calculateTax() {
+            const taxInput = document.getElementById('tax-input');
+            const taxPayout = document.getElementById('tax-payout');
+            const taxFee = document.getElementById('tax-fee');
+            const inputLabelTax = document.getElementById('input-label-tax');
+            const selectedDirection = document.querySelector('input[name="tax-direction"]:checked').value;
+
+            if (!taxInput || !taxPayout || !taxFee || !inputLabelTax) return;
+
+            const amount = parseFloat(taxInput.value) || 0;
+
+            if (selectedDirection === 'list') {
+                inputLabelTax.innerText = "Enter Item Price (Robux)";
+                
+                // Listing price is input. Developer gets 70%, Roblox takes 30%
+                const payout = Math.floor(amount * 0.7);
+                const fee = Math.ceil(amount * 0.3);
+                
+                taxPayout.innerText = payout.toLocaleString();
+                taxFee.innerText = fee.toLocaleString();
+            } else {
+                inputLabelTax.innerText = "Enter Desired Payout (Robux)";
+                
+                // Input is what the developer wants to receive. What price should they set?
+                // Price = Target / 0.7
+                const requiredPrice = amount > 0 ? Math.ceil(amount / 0.7) : 0;
+                const fee = requiredPrice - amount;
+
+                taxPayout.innerText = requiredPrice.toLocaleString();
+                // We show the Roblox tax as the difference
+                taxFee.innerText = fee.toLocaleString();
+                
+                // Adjust labels dynamically to clarify the output
+                document.querySelector('#tax-payout').previousElementSibling.innerText = "Price to Set (Listing)";
+                document.querySelector('#tax-fee').previousElementSibling.innerText = "Roblox Tax (30%)";
+                return;
+            }
+
+            // Restore default sub-labels if switching back
+            document.querySelector('#tax-payout').previousElementSibling.innerText = "You Receive (70%)";
+            document.querySelector('#tax-fee').previousElementSibling.innerText = "Roblox Tax (30%)";
+        }
+
+        function convertRobuxToUsd() {
+            const robuxInput = document.getElementById('devex-robux');
+            const usdOutput = document.getElementById('devex-output');
+
+            if (!robuxInput || !usdOutput) return;
+
+            const robux = parseFloat(robuxInput.value) || 0;
+            // 1 Robux = $0.0035 USD (or 100k Robux = $350)
+            const usd = robux * 0.0035;
+
+            usdOutput.innerText = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(usd);
+        }
+
+        // Run calculations on load
+        window.addEventListener('DOMContentLoaded', () => {
+            calculateTax();
+        });
+    </script>
+</body>
+</html>
