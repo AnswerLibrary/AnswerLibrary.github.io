@@ -28,46 +28,60 @@
     <style>
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 10px; }
+        
+        /* إخفاء شريط التمرير الأفقي للأقسام للحفاظ على المظهر العام */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
+        .ambient-glow { transform: translate3d(0,0,0); backface-visibility: hidden; }
     </style>
 </head>
-<body class="bg-[#f8fafc] dark:bg-[#0b0f19] text-slate-800 dark:text-slate-200 min-h-screen transition-colors duration-300 flex flex-col font-sans relative overflow-x-hidden">
+<body class="bg-slate-50 dark:bg-[#090d16] text-slate-800 dark:text-slate-200 min-h-screen transition-colors duration-300 flex flex-col font-sans relative overflow-x-hidden antialiased">
     
-    <!-- Ambient Glow Effects (إضاءة محيطية بالخلفية لجمالية التصميم) -->
-    <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-500/5 dark:bg-indigo-600/5 blur-[120px] pointer-events-none z-0"></div>
-    <div class="absolute top-[30%] right-[-10%] w-[400px] h-[400px] rounded-full bg-cyan-500/5 dark:bg-sky-600/5 blur-[120px] pointer-events-none z-0"></div>
+    <!-- Ambient Glow Effects -->
+    <div class="ambient-glow absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-500/5 dark:bg-indigo-600/5 blur-[120px] pointer-events-none z-0"></div>
+    <div class="ambient-glow absolute top-[30%] right-[-10%] w-[400px] h-[400px] rounded-full bg-cyan-500/5 dark:bg-sky-600/5 blur-[120px] pointer-events-none z-0"></div>
 
     <!-- Scroll Progress Bar -->
-    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-indigo-600 z-[60]" style="width: 0%"></div>
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-indigo-600 z-[60] transition-all duration-100" style="width: 0%"></div>
     
-   <!-- Top Navigation Bar -->
-    <header class="bg-white/80 dark:bg-[#111827]/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+    <!-- Top Navigation Bar -->
+    <header class="bg-white/80 dark:bg-[#111827]/80 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 sticky top-0 z-50 transition-colors">
         <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between gap-4">
             
             <!-- Logo & Brand -->
-            <a href="index.html" class="flex items-center gap-2.5 shrink-0">
-                <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white shadow-md shadow-indigo-600/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <a href="index.html" class="flex items-center gap-2.5 shrink-0 group">
+                <div class="w-9 h-9 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-md shadow-indigo-600/20 group-hover:bg-indigo-700 transition-colors">
+                    <svg class="w-4.5 h-4.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
                 </div>
-                <span class="text-lg font-black text-slate-900 dark:text-white tracking-tight">AnswerLibrary</span>
+                <span class="text-lg font-extrabold text-slate-900 dark:text-white tracking-tight">AnswerLibrary</span>
             </a>
 
             <!-- Global Search Box (Desktop) -->
-            <div class="flex-grow max-w-2xl hidden md:block relative">
-                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+            <div class="flex-grow max-w-xl hidden md:block relative">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
                 </div>
                 <input 
                     type="text" 
                     id="search-input" 
-                    placeholder="Search questions, answers, or tags..." 
-                    class="w-full pl-9 pr-4 py-2 text-sm rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-all"
+                    placeholder="Search questions, topics, or tags..." 
+                    class="w-full pl-10 pr-4 py-2 text-sm rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 focus:outline-none focus:ring-2 focus:ring-indigo-600 dark:focus:ring-indigo-500 focus:border-transparent transition-all text-slate-900 dark:text-slate-100"
                 >
             </div>
 
-            <!-- Utility Controls (يحتوي على زر تفعيل الوضع الداكن فقط) -->
+            <!-- Utility Controls (Dark Mode Toggle) -->
             <div class="flex items-center gap-3 shrink-0">
-                <button onclick="toggleDarkMode()" class="w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors text-sm" aria-label="Toggle Dark Mode">🌓</button>
+                <button onclick="toggleDarkMode()" class="w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center justify-center hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-300 transition-colors" aria-label="Toggle Dark Mode">
+                    <svg class="w-4 h-4 block dark:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <svg class="w-4 h-4 hidden dark:block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
             </div>
         </div>
     </header>
@@ -76,65 +90,68 @@
     <div class="max-w-7xl mx-auto px-4 md:px-6 py-6 flex-grow w-full flex gap-6 z-10">
         
         <!-- Left Sidebar (Navigation & Info) -->
-        <aside class="w-64 shrink-0 hidden lg:flex flex-col gap-6">
-            <nav class="bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/60 dark:border-slate-800/60 p-4 flex flex-col gap-1 shadow-sm">
-                <a href="index.html" class="flex items-center gap-3 px-3 py-2 text-sm font-bold text-indigo-600 bg-indigo-50/50 dark:bg-indigo-950/30 rounded-xl transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <aside class="w-60 shrink-0 hidden lg:flex flex-col gap-6">
+            <nav class="bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/60 dark:border-slate-800/60 p-3 flex flex-col gap-1 shadow-sm transition-colors">
+                <a href="index.html" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50/50 dark:bg-indigo-950/20 rounded-xl transition-colors">
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                     Home
                 </a>
-                <a href="#popular" onclick="setSort('popular')" class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-xl transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <a href="#popular" onclick="setSort('popular')" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-xl transition-colors">
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                     Popular Answers
                 </a>
             </nav>
-             <div class="bg-gradient-to-br from-indigo-950 to-slate-950 text-white rounded-2xl p-4 border border-indigo-950/40 shadow-sm relative overflow-hidden">
-                <div class="absolute -right-10 -bottom-10 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl"></div>
-                
-                <h4 class="text-[10px] font-black uppercase tracking-wider text-indigo-400 mb-1.5 flex items-center gap-1.5">
+            <div class="bg-gradient-to-br from-indigo-950 to-slate-950 text-white rounded-2xl p-5 border border-indigo-900/30 shadow-sm relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-24 h-24 bg-indigo-500/10 rounded-full blur-xl"></div>
+                <h4 class="text-[10px] font-black uppercase tracking-wider text-indigo-400 mb-2 flex items-center gap-1.5">
                     🎯 Content Pledge
                 </h4>
-                <p class="text-[11px] text-slate-300 leading-relaxed font-medium">
+                <p class="text-xs text-slate-300 leading-relaxed font-medium">
                     Accurate, objective, and direct answers. We bypass the fluff to preserve your focus and save your time.
                 </p>
             </div>
         </aside>
 
         <!-- Center Feed (Main Content) -->
-        <main class="flex-grow max-w-3xl flex flex-col gap-4">
+        <main class="flex-grow max-w-3xl flex flex-col gap-4 overflow-hidden">
             
             <!-- Mobile Search Box (Visible on mobile only) -->
             <div class="md:hidden relative mb-2">
-                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
                 </div>
                 <input 
                     type="text" 
                     id="search-input-mobile" 
                     placeholder="Search questions..." 
-                    class="w-full pl-9 pr-4 py-2.5 text-sm rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-all"
+                    class="w-full pl-10 pr-4 py-2.5 text-sm rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111827] focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-all"
                 >
             </div>
 
             <!-- Header Controls & Filtering Tab -->
-            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
-                <h1 class="text-xl font-bold text-slate-900 dark:text-white">All Questions</h1>
-                <div id="sort-container" class="flex gap-1 bg-slate-200/50 dark:bg-slate-900 rounded-lg p-0.5 border border-slate-200 dark:border-slate-800/80">
-                    <button id="sort-newest" onclick="setSort('newest')" class="px-3 py-1 text-xs font-bold rounded-md bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm transition-all">Newest</button>
-                    <button id="sort-popular" onclick="setSort('popular')" class="px-3 py-1 text-xs font-medium rounded-md text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all">Popular</button>
+            <div class="flex items-center justify-between border-b border-slate-200/80 dark:border-slate-800/80 pb-4">
+                <h1 class="text-lg font-extrabold text-slate-900 dark:text-white">All Questions</h1>
+                <div id="sort-container" class="flex gap-1 bg-slate-200/40 dark:bg-slate-900 p-1 rounded-xl border border-slate-200/60 dark:border-slate-800/60">
+                    <button id="sort-newest" onclick="setSort('newest')" class="px-3.5 py-1 text-xs font-bold rounded-lg transition-all">Newest</button>
+                    <button id="sort-popular" onclick="setSort('popular')" class="px-3.5 py-1 text-xs font-medium rounded-lg transition-all">Popular</button>
                 </div>
             </div>
 
-            <!-- Dynamic Category Filters Container -->
-            <div id="categories-filter" class="flex flex-wrap gap-2 mb-2">
-                <!-- Skeleton for filter buttons -->
-                <div class="h-7 w-12 bg-slate-200 dark:bg-slate-800 rounded-lg animate-pulse"></div>
-                <div class="h-7 w-16 bg-slate-200 dark:bg-slate-800 rounded-lg animate-pulse"></div>
+            <!-- Dynamic Category Filters Container (تم معالجة التمدد الرأسي هنا بالتمرير الأفقي المخفي) -->
+            <div class="relative w-full overflow-hidden mb-1">
+                <div id="categories-filter" class="flex flex-nowrap overflow-x-auto gap-2 pb-2.5 no-scrollbar scroll-smooth snap-x">
+                    <!-- Skeleton placeholders -->
+                    <div class="h-8 w-14 bg-slate-200 dark:bg-slate-800 rounded-lg animate-pulse shrink-0"></div>
+                    <div class="h-8 w-20 bg-slate-200 dark:bg-slate-800 rounded-lg animate-pulse shrink-0"></div>
+                    <div class="h-8 w-16 bg-slate-200 dark:bg-slate-800 rounded-lg animate-pulse shrink-0"></div>
+                    <div class="h-8 w-24 bg-slate-200 dark:bg-slate-800 rounded-lg animate-pulse shrink-0"></div>
+                </div>
             </div>
 
             <!-- Main Questions List Container -->
             <div id="questions-list" class="flex flex-col gap-4">
                 
-                <!-- Default Skeleton Loader (Avoids CLS layout shift & feeds SEO crawlers) -->
+                <!-- Default Skeleton Loader -->
                 <div class="animate-pulse bg-white dark:bg-[#111827] p-5 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 flex gap-4">
                     <div class="hidden sm:flex flex-col gap-2 items-center shrink-0 w-16">
                         <div class="h-8 bg-slate-200 dark:bg-slate-800 rounded w-10"></div>
@@ -155,17 +172,17 @@
         </main>
 
         <!-- Right Sidebar (Stats & Static Suggestions) -->
-        <aside class="w-72 shrink-0 hidden xl:flex flex-col gap-6">
-            <section class="bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/60 dark:border-slate-800/60 p-5 shadow-sm">
-                <h3 class="text-sm font-black uppercase tracking-wider text-slate-400 mb-4">Platform Stats</h3>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800/50">
+        <aside class="w-64 shrink-0 hidden xl:flex flex-col gap-6">
+            <section class="bg-white dark:bg-[#111827] rounded-2xl border border-slate-200/60 dark:border-slate-800/60 p-5 shadow-sm transition-colors">
+                <h3 class="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-4">Platform Stats</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800/40">
                         <span id="stats-count" class="block text-xl font-extrabold text-indigo-600 dark:text-indigo-400">--</span>
-                        <span class="text-[10px] font-bold text-slate-400 uppercase">Answers</span>
+                        <span class="text-[9px] font-bold text-slate-400 uppercase">Answers</span>
                     </div>
-                    <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800/50">
+                    <div class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800/40">
                         <span class="block text-xl font-extrabold text-emerald-600 dark:text-emerald-400">100%</span>
-                        <span class="text-[10px] font-bold text-slate-400 uppercase">Veracity</span>
+                        <span class="text-[9px] font-bold text-slate-400 uppercase">Veracity</span>
                     </div>
                 </div>
             </section>
@@ -173,7 +190,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="py-8 border-t border-slate-200 dark:border-slate-900 text-center bg-white dark:bg-[#111827]">
+    <footer class="py-8 border-t border-slate-200 dark:border-slate-900 text-center bg-white dark:bg-[#111827] mt-auto transition-colors">
         <div class="flex justify-center gap-6 mb-3">
             <a href="about.html" class="text-xs font-bold text-slate-400 hover:text-indigo-600 transition-colors">About</a>
             <a href="privacy.html" class="text-xs font-bold text-slate-400 hover:text-indigo-600 transition-colors">Privacy</a>
@@ -183,7 +200,7 @@
 
     <!-- Back to Top Button -->
     <button id="back-to-top" class="fixed bottom-8 right-8 w-11 h-11 bg-indigo-600 text-white rounded-xl shadow-lg opacity-0 invisible transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center z-50" aria-label="Scroll back to top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
     </button>
 
     <!-- Main JavaScript Controller -->
