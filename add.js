@@ -359,33 +359,41 @@ document.addEventListener("DOMContentLoaded", function() {
         const rTime = document.getElementById('reading-time');
         if (rTime) rTime.innerText = `${Math.max(1, Math.ceil(words / 200))} min read`;
 
+        // تفعيل الزر الكبير الثابت "COPY DIRECT LINK" في الصفحة تلقائياً
+        document.querySelectorAll('button, a').forEach(el => {
+            if (el.textContent.trim().toUpperCase() === 'COPY DIRECT LINK') {
+                el.removeAttribute('href'); // التأكد من عدم قيامه بإعادة توجيه الصفحة
+                el.onclick = function(e) {
+                    e.preventDefault();
+                    window.copyCurrentUrl();
+                };
+            }
+        });
+
         const share = document.getElementById('share-buttons');
         if (share) {
-            // صندوق مشاركة بتصميم موحد هندسياً ويدعم x.com بالكامل
+            // نقوم هنا بحقن الأيقونات الدائرية المتناسقة فقط دون نصوص مكررة لتتناسب مع التصميم الثابت
             share.innerHTML = `
-                <div class="flex flex-col gap-3 p-4 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 transition-colors">
-                    <p class="text-xs font-bold text-slate-500 dark:text-slate-400">Was this helpful? Share it with your friends!</p>
-                    <div class="flex flex-wrap items-center gap-2">
-                        <!-- WhatsApp -->
-                        <a href="https://wa.me/?text=${encodeURIComponent(document.title + " " + window.location.href)}" target="_blank" class="w-10 h-10 rounded-xl bg-[#25D366]/10 hover:bg-[#25D366]/20 flex items-center justify-center text-[#25D366] transition-all hover:-translate-y-0.5" title="Share on WhatsApp">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.333 4.993L2 22l5.135-1.348a9.953 9.953 0 004.873 1.28c5.505 0 9.99-4.478 9.99-9.985A9.993 9.993 0 0012.012 2zm5.792 14.167c-.318.892-1.84 1.63-2.528 1.73-.615.09-1.42.162-2.3-.124-5.282-1.71-8.118-7.394-8.118-7.394s-.897-1.185-.897-2.22c0-1.034.54-1.543.733-1.753.193-.21.42-.26.56-.26h.4c.14 0 .324.012.472.353.16.368.54 1.32.588 1.417.048.097.08.21.016.339-.064.13-.12.21-.24.348-.12.138-.252.308-.36.415-.12.119-.244.25-.104.492.14.24.621 1.022 1.332 1.654.914.813 1.688 1.066 1.93 1.185.24.12.38.1.52-.06.14-.16.6-1.117.76-1.417.16-.3.32-.24.54-.16s1.4.66 1.64.777c.24.117.4.175.46.273.06.098.06.566-.258 1.458z"/></svg>
-                        </a>
-                        
-                        <!-- Facebook -->
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}" target="_blank" class="w-10 h-10 rounded-xl bg-[#1877F2]/10 hover:bg-[#1877F2]/20 flex items-center justify-center text-[#1877F2] transition-all hover:-translate-y-0.5" title="Share on Facebook">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                        </a>
-                        
-                        <!-- X.com (Twitter) -->
-                        <a href="https://x.com/intent/tweet?text=${encodeURIComponent(document.title)}&url=${encodeURIComponent(window.location.href)}" target="_blank" class="w-10 h-10 rounded-xl bg-slate-900/10 dark:bg-white/10 hover:bg-slate-900/20 dark:hover:bg-white/20 flex items-center justify-center text-slate-800 dark:text-slate-100 transition-all hover:-translate-y-0.5" title="Share on X">
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        </a>
-                        
-                        <!-- Copy Direct Link (أيضاً بحجم متطابق كأيقونة مربعة) -->
-                        <button onclick="window.copyCurrentUrl()" class="w-10 h-10 rounded-xl bg-indigo-600/10 dark:bg-indigo-400/10 hover:bg-indigo-600/20 dark:hover:bg-indigo-400/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 transition-all hover:-translate-y-0.5" title="Copy Direct Link">
-                            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
-                        </button>
-                    </div>
+                <div class="flex items-center justify-center gap-3 py-1">
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/?text=${encodeURIComponent(document.title + " " + window.location.href)}" target="_blank" class="w-10 h-10 rounded-full bg-[#25D366]/10 hover:bg-[#25D366]/20 flex items-center justify-center text-[#25D366] transition-all hover:-translate-y-0.5" title="Share on WhatsApp">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.333 4.993L2 22l5.135-1.348a9.953 9.953 0 004.873 1.28c5.505 0 9.99-4.478 9.99-9.985A9.993 9.993 0 0012.012 2zm5.792 14.167c-.318.892-1.84 1.63-2.528 1.73-.615.09-1.42.162-2.3-.124-5.282-1.71-8.118-7.394-8.118-7.394s-.897-1.185-.897-2.22c0-1.034.54-1.543.733-1.753.193-.21.42-.26.56-.26h.4c.14 0 .324.012.472.353.16.368.54 1.32.588 1.417.048.097.08.21.016.339-.064.13-.12.21-.24.348-.12.138-.252.308-.36.415-.12.119-.244.25-.104.492.14.24.621 1.022 1.332 1.654.914.813 1.688 1.066 1.93 1.185.24.12.38.1.52-.06.14-.16.6-1.117.76-1.417.16-.3.32-.24.54-.16s1.4.66 1.64.777c.24.117.4.175.46.273.06.098.06.566-.258 1.458z"/></svg>
+                    </a>
+                    
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}" target="_blank" class="w-10 h-10 rounded-full bg-[#1877F2]/10 hover:bg-[#1877F2]/20 flex items-center justify-center text-[#1877F2] transition-all hover:-translate-y-0.5" title="Share on Facebook">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    
+                    <!-- X.com -->
+                    <a href="https://x.com/intent/tweet?text=${encodeURIComponent(document.title)}&url=${encodeURIComponent(window.location.href)}" target="_blank" class="w-10 h-10 rounded-full bg-slate-900/10 dark:bg-white/10 hover:bg-slate-900/20 dark:hover:bg-white/20 flex items-center justify-center text-slate-800 dark:text-slate-100 transition-all hover:-translate-y-0.5" title="Share on X">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    
+                    <!-- Copy Link Icon -->
+                    <button onclick="window.copyCurrentUrl()" class="w-10 h-10 rounded-full bg-indigo-600/10 dark:bg-indigo-400/10 hover:bg-indigo-600/20 dark:hover:bg-indigo-400/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 transition-all hover:-translate-y-0.5" title="Copy Direct Link">
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+                    </button>
                 </div>
             `;
         }
