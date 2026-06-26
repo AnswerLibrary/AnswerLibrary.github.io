@@ -1,5 +1,486 @@
 [
   {
+    "title": "What is the strategic value of AWS Database Learning Plan Management for 2026 tech teams?",
+    "description": "Explore the strategic value of AWS Database Learning Plans for 2026 tech teams, focusing on AI integration, serverless efficiency, and multi-model mastery.",
+    "url": "strategic-value-aws-database-learning-plans-2026.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "How do you create a structured roadmap for learning AWS database services?",
+    "description": "Master AWS database services with this structured roadmap. Learn RDS, DynamoDB, Aurora, and specialized engines for data modeling and cloud migration.",
+    "url": "aws-database-learning-roadmap.html",
+    "category": "Databases"
+  },
+  {
+    "title": "What are the core modules required for a comprehensive AWS database training plan?",
+    "description": "Master AWS database management with this comprehensive training plan covering RDS, DynamoDB, Aurora, migration tools, and cloud security best practices.",
+    "url": "aws-database-training-core-modules.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "How does Jenis Web Technologies optimize AWS database learning for Laravel developers?",
+    "description": "Learn how Jenis Web Technologies helps Laravel developers master AWS databases, from Amazon RDS and Aurora to ElastiCache and IAM security integration.",
+    "url": "how-jenis-web-technologies-optimizes-aws-database-learning-laravel.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "What are the benefits of aligning database training with AWS Certified Database Specialty?",
+    "description": "Discover the benefits of aligning database training with the AWS Certified Database Specialty, including technical mastery, career growth, and cost optimization.",
+    "url": "benefits-of-aligning-database-training-with-aws-certified-database-specialty.html",
+    "category": "Certification"
+  },
+  {
+    "title": "How can businesses reduce training downtime using structured AWS learning paths?",
+    "description": "Learn how structured AWS learning paths reduce training downtime, bridge the cloud skills gap, and improve operational efficiency for your engineering teams.",
+    "url": "reduce-training-downtime-aws-learning-paths.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "What role does AWS Skill Builder play in modern database education management?",
+    "description": "AWS Skill Builder streamlines database education by providing structured learning paths, hands-on labs, and team tracking for AWS RDS, Aurora, and DynamoDB.",
+    "url": "aws-skill-builder-database-education-management.html",
+    "category": "Education"
+  },
+  {
+    "title": "How to incorporate Amazon Aurora Serverless v2 into a team learning plan?",
+    "description": "Master Amazon Aurora Serverless v2 with this team learning plan. Learn scaling mechanics, hands-on labs, monitoring, and cost governance for AWS databases.",
+    "url": "amazon-aurora-serverless-v2-team-learning-plan.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "Why is skill progression tracking essential for cloud database administration?",
+    "description": "Discover why skill progression tracking is vital for cloud database administrators to stay competitive, manage costs, and master modern automation tools effectively.",
+    "url": "skill-progression-tracking-cloud-database-administration.html",
+    "category": "Technology"
+  },
+  {
+    "title": "What is the impact of adaptive learning models on AWS database training?",
+    "description": "Explore how adaptive learning models enhance AWS database training through personalization, faster certification, and improved skill retention for developers.",
+    "url": "adaptive-learning-aws-database-training-impact.html",
+    "category": "AWS"
+  },
+  {
+    "title": "How do you integrate hands-on labs into an AWS RDS learning curriculum?",
+    "description": "Master AWS RDS by integrating hands-on labs into your curriculum. Learn to provision instances, manage security, scale replicas, and monitor performance effectively.",
+    "url": "how-to-integrate-hands-on-labs-aws-rds.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "What are the best strategies for managing rapid AWS database service updates in training?",
+    "description": "Discover the best strategies for managing rapid AWS database updates in training, including using Infrastructure as Code, official feeds, and agile content reviews.",
+    "url": "managing-rapid-aws-database-updates-training.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "How does AWS Database Learning Plan Management improve employee retention rates?",
+    "description": "Discover how AWS Database Learning Plan Management improves employee retention by fostering growth, reducing burnout, and providing clear career paths.",
+    "url": "aws-database-learning-plan-retention-benefits.html",
+    "category": "Training"
+  },
+  {
+    "title": "What is the cost efficiency of hiring $20/hour AWS consultants for team training?",
+    "description": "Analyze the cost efficiency of hiring $20/hour AWS consultants for team training. Learn why low rates often lead to higher long-term cloud costs and risks.",
+    "url": "cost-efficiency-20-hour-aws-consultants-training.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "How to map AWS Redshift training to business intelligence integration goals?",
+    "description": "Learn how to align AWS Redshift training with your business intelligence goals to optimize performance, reduce costs, and improve data accessibility.",
+    "url": "mapping-aws-redshift-training-to-bi-goals.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "What are the unique challenges of customizing AWS database plans for small enterprises?",
+    "description": "Small enterprises face unique hurdles when customizing AWS database plans, including complex cost management, technical skill gaps, and right-sizing performance.",
+    "url": "challenges-customizing-aws-database-plans-small-enterprises.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "How to transition from random training sessions to a structured AWS database path?",
+    "description": "Learn how to transition from random training to a structured AWS database career path. Explore service categorization, certification guides, and labs.",
+    "url": "structured-aws-database-path.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "What are the key differences between RDS and DynamoDB learning modules?",
+    "description": "Learn the key differences between AWS RDS and DynamoDB. This guide covers data models, scaling, and performance to help you master cloud database management.",
+    "url": "rds-vs-dynamodb-differences.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "How to use AWS Learning Plan dashboards for real-time progress monitoring?",
+    "description": "Learn how to monitor your AWS training progress in real-time using AWS Skill Builder dashboards. Track course completion, badges, and learning milestones.",
+    "url": "aws-learning-plan-dashboard-progress-monitoring.html",
+    "category": "AWS"
+  },
+  {
+    "title": "What is the future of AI-driven personalization in AWS database education?",
+    "description": "Explore how AI is revolutionizing AWS database education through personalized learning paths, real-time feedback, and adaptive training for data professionals.",
+    "url": "future-ai-personalization-aws-database-education.html",
+    "category": "Education"
+  },
+  {
+    "title": "Is an AWS Database Learning Plan necessary for full-stack Laravel agencies?",
+    "description": "Learn if an AWS Database Learning Plan is essential for full-stack Laravel agencies to optimize RDS, Aurora, and ElastiCache for high-performance apps.",
+    "url": "is-aws-database-learning-plan-necessary-laravel-agencies.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "Comparison of self-paced vs. managed AWS database learning plans for 2026.",
+    "description": "Explore the comparison between self-paced and managed AWS database learning plans for 2026. Find the right path for your budget, schedule, and career goals.",
+    "url": "aws-database-learning-plans-2026-comparison.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "How to migrate legacy database skills to Amazon DynamoDB effectively?",
+    "description": "Learn how to transition from legacy RDBMS to Amazon DynamoDB by mastering NoSQL modeling, single-table design, and efficient access patterns for scalability.",
+    "url": "migrating-legacy-db-skills-to-dynamodb.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "Best practices for AWS Database Migration Service (DMS) training labs.",
+    "description": "Discover the essential best practices for setting up AWS Database Migration Service (DMS) training labs, covering instance sizing, security, and SCT usage.",
+    "url": "best-practices-aws-dms-training-labs.html",
+    "category": "AWS"
+  },
+  {
+    "title": "How does Jenis Web Technologies scale AWS skills for growing digital agencies?",
+    "description": "Discover how Jenis Web Technologies helps digital agencies scale AWS skills through managed services, cloud optimization, and expert architectural support.",
+    "url": "jenis-web-technologies-aws-scaling-digital-agencies.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "What are the must-have AWS database competencies for project managers?",
+    "description": "Master the essential AWS database skills for project managers. Learn about RDS, DynamoDB, cost management, and high availability to drive successful cloud projects.",
+    "url": "aws-database-competencies-project-managers.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "How to align AWS DocumentDB training with MongoDB workload migration?",
+    "description": "Learn how to align AWS DocumentDB training with MongoDB migrations. Explore architectural differences, migration tools like DMS, and performance optimization.",
+    "url": "align-aws-documentdb-training-mongodb-migration.html",
+    "category": "Databases"
+  },
+  {
+    "title": "What are the top 5 AWS database services to include in a 2026 curriculum?",
+    "description": "Explore the top 5 AWS database services essential for a 2026 curriculum, focusing on serverless scaling, NoSQL, and AI-ready vector search capabilities.",
+    "url": "top-5-aws-database-services-2026-curriculum.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "How to measure the ROI of AWS Database Learning Plan Management?",
+    "description": "Learn how to measure the ROI of AWS Database Learning Plan Management by tracking cloud cost optimization, reduced downtime, and team efficiency using key performance metrics.",
+    "url": "measure-roi-aws-database-learning-plan.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "Effective ways to teach AWS database fault tolerance and replication.",
+    "description": "Master the best strategies for teaching AWS database fault tolerance and replication, including Multi-AZ, Read Replicas, and Aurora Global Database designs.",
+    "url": "effective-ways-to-teach-aws-database-fault-tolerance-replication.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "How to keep cloud database training relevant with continuous content updates?",
+    "description": "Learn how to maintain relevant cloud database training through modular architecture, automated change tracking, and agile revision cycles.",
+    "url": "keep-cloud-database-training-relevant-updates.html",
+    "category": "Technology"
+  },
+  {
+    "title": "What role does automation play in updating AWS database learning curriculums?",
+    "description": "Learn how automation streamlines AWS database learning curriculums through IaC, CI/CD pipelines, and automated testing to keep training content current.",
+    "url": "automation-role-aws-database-learning-curriculums.html",
+    "category": "Automation"
+  },
+  {
+    "title": "How to design a curriculum for Amazon Redshift analytics and clusters?",
+    "description": "Learn how to design a comprehensive Amazon Redshift curriculum covering MPP architecture, data modeling, performance tuning, Spectrum, and cloud security.",
+    "url": "design-curriculum-amazon-redshift-analytics-clusters.html",
+    "category": "Analytics"
+  },
+  {
+    "title": "What are the prerequisites for the AWS Certified Database Specialty path?",
+    "description": "Discover the prerequisites for the AWS Certified Database Specialty certification. Learn about recommended experience, exam domains, and the DBS-C01 requirements.",
+    "url": "aws-certified-database-specialty-prerequisites.html",
+    "category": "Certification"
+  },
+  {
+    "title": "How to bridge the skill gap between MySQL and Amazon Aurora?",
+    "description": "Learn how to transition from MySQL to Amazon Aurora. This guide covers storage architecture, replication differences, and performance optimization tips.",
+    "url": "how-to-bridge-skill-gap-mysql-to-amazon-aurora.html",
+    "category": "Database"
+  },
+  {
+    "title": "Why is consistency important in team-wide AWS database training?",
+    "description": "Discover why consistent team-wide AWS database training is vital for improving security, optimizing cloud costs, and enhancing operational efficiency for DevOps.",
+    "url": "importance-of-consistency-aws-database-training.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "How can remote teams collaborate on AWS database hands-on projects?",
+    "description": "Discover how to effectively collaborate on AWS database projects using Cloud9, IAM Identity Center, IaC, and secure VPNs for remote team success.",
+    "url": "remote-collaboration-aws-database-projects.html",
+    "category": "Database"
+  },
+  {
+    "title": "What is the benefit of integrating Vue.js development with AWS database logic?",
+    "description": "Discover how integrating Vue.js with AWS database logic enhances scalability, security, and real-time data synchronization for modern serverless applications.",
+    "url": "benefits-vue-js-aws-database-integration.html",
+    "category": "Development"
+  },
+  {
+    "title": "How to implement automated backups and scaling in an AWS training environment?",
+    "description": "Learn how to configure AWS Backup and EC2 Auto Scaling to create a resilient, cost-effective, and scalable AWS training environment for students.",
+    "url": "automated-backups-scaling-aws-training.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "What are the first steps for a developer starting an AWS database journey?",
+    "description": "Learn the essential first steps for developers starting their AWS database journey, including service selection, IAM security, and networking basics.",
+    "url": "aws-database-starting-guide.html",
+    "category": "Cloud"
+  },
+  {
+    "title": "How can I find my life purpose if I feel like I'm falling behind at 30?",
+    "description": "Feeling behind at 30? Learn how to find your life purpose using the Ikigai framework, micro-experimentation, and mindset shifts to start your new chapter.",
+    "url": "how-to-find-life-purpose-at-30.html",
+    "category": "Growth"
+  },
+  {
+    "title": "What are the 7 self-reflection questions for discovering a career path?",
+    "description": "Uncover your dream career with these 7 essential self-reflection questions. Learn to align your passions and strengths for professional success and happiness.",
+    "url": "7-self-reflection-questions-for-career-discovery.html",
+    "category": "Career"
+  },
+  {
+    "title": "How did Julia Child and Vera Wang find their true calling after 40?",
+    "description": "Learn how icons Julia Child and Vera Wang reinvented their careers after 40, proving that it is never too late to find your passion and achieve global success.",
+    "url": "julia-child-vera-wang-success-after-40.html",
+    "category": "Success"
+  },
+  {
+    "title": "What is the definition of purpose as a guiding force for goals?",
+    "description": "Learn how purpose acts as a guiding force for goals, providing the motivation and direction needed to achieve long-term success and personal fulfillment.",
+    "url": "definition-of-purpose-guiding-force-goals.html",
+    "category": "Motivation"
+  },
+  {
+    "title": "Can spending time alone help you identify your core values?",
+    "description": "Discover how spending time alone aids in identifying your core values. Learn why solitude fosters deep self-reflection and helps you live a more authentic life.",
+    "url": "can-spending-time-alone-help-identify-core-values.html",
+    "category": "Psychology"
+  },
+  {
+    "title": "Which activities help you lose track of time to reveal your passion?",
+    "description": "Learn how to identify your true passion by finding activities that trigger a flow state and make you lose track of time. A guide to self-discovery and growth.",
+    "url": "activities-to-find-your-passion.html",
+    "category": "Growth"
+  },
+  {
+    "title": "How do life's challenges reveal personal strengths for a new career?",
+    "description": "Discover how overcoming life's challenges reveals hidden personal strengths like resilience and adaptability, providing a foundation for your new career path today.",
+    "url": "how-challenges-reveal-career-strengths.html",
+    "category": "Career"
+  },
+  {
+    "title": "What are 10 examples of uncommon life purposes to consider in 2026?",
+    "description": "Explore 10 unique and uncommon life purposes for 2026, ranging from digital heritage curation to urban rewilding and cognitive sovereignty. Find your path.",
+    "url": "10-uncommon-life-purposes-2026.html",
+    "category": "Lifestyle"
+  },
+  {
+    "title": "How can I advocate for sustainable fashion as a primary life purpose?",
+    "description": "Learn how to turn sustainable fashion advocacy into a life purpose through conscious consumption, education, and professional activism for a greener future.",
+    "url": "how-to-advocate-for-sustainable-fashion-as-a-life-purpose.html",
+    "category": "Sustainability"
+  },
+  {
+    "title": "What are the benefits of reviving ancient crafts in a modern economy?",
+    "description": "Discover the significant economic, social, and environmental benefits of reviving ancient crafts, from sustainability to the growth of high-value niche markets.",
+    "url": "benefits-of-reviving-ancient-crafts-in-a-modern-economy.html",
+    "category": "Economy"
+  },
+  {
+    "title": "How do therapeutic gardens promote mental and physical wellbeing?",
+    "description": "Explore how therapeutic gardens improve mental and physical wellbeing through stress reduction, sensory stimulation, and physical activity in our guide.",
+    "url": "how-therapeutic-gardens-promote-wellbeing.html",
+    "category": "Wellness"
+  },
+  {
+    "title": "What steps are needed to advocate for digital detox in a tech-driven world?",
+    "description": "Discover essential steps to advocate for digital detox. Learn how to lead by example, educate others, and promote healthy boundaries in a tech-driven world.",
+    "url": "steps-to-advocate-digital-detox.html",
+    "category": "Wellness"
+  },
+  {
+    "title": "How can storytelling amplify underrepresented voices in media today?",
+    "description": "Explore how storytelling amplifies underrepresented voices by dismantling stereotypes, humanizing diverse experiences, and leveraging digital media platforms.",
+    "url": "how-storytelling-amplifies-underrepresented-voices.html",
+    "category": "Media"
+  },
+  {
+    "title": "What is intergenerational learning and how does it foster mutual respect?",
+    "description": "Explore how intergenerational learning connects different age groups through shared knowledge, breaks down stereotypes, and builds lasting mutual respect.",
+    "url": "what-is-intergenerational-learning-and-mutual-respect.html",
+    "category": "Education"
+  },
+  {
+    "title": "How to start a career innovating accessible travel for people with disabilities?",
+    "description": "Launch your career in accessible travel innovation. Discover how to use universal design, advocacy, and technology to create inclusive experiences for everyone.",
+    "url": "how-to-start-career-accessible-travel-innovation.html",
+    "category": "Travel"
+  },
+  {
+    "title": "Can transforming urban spaces into farms improve community health?",
+    "description": "Discover how urban farming transforms vacant lots into healthy hubs, improving nutrition, mental health, and social connections in metropolitan areas.",
+    "url": "urban-farming-community-health-benefits.html",
+    "category": "Sustainability"
+  },
+  {
+    "title": "Why is emotional intelligence training important in modern school curriculums?",
+    "description": "Emotional intelligence training in schools improves academic performance, mental health, and prepares students for the social demands of the modern workforce.",
+    "url": "importance-of-emotional-intelligence-in-schools.html",
+    "category": "Education"
+  },
+  {
+    "title": "What does it mean to promote global citizenship and cross-cultural understanding?",
+    "description": "Learn what it means to promote global citizenship and cross-cultural understanding to foster a more inclusive, empathetic, and interconnected global community.",
+    "url": "what-is-global-citizenship-and-cross-cultural-understanding.html",
+    "category": "Education"
+  },
+  {
+    "title": "How do I determine what I want to be remembered for in my career?",
+    "description": "Discover how to define your career legacy by identifying core values, analyzing your impact, and aligning daily actions with your long-term professional goals.",
+    "url": "how-to-determine-career-legacy.html",
+    "category": "Career"
+  },
+  {
+    "title": "What role do mentors play in helping you discover your professional path?",
+    "description": "Discover how mentors provide guidance, networking, and industry insights to help you navigate your professional path and achieve long-term career success.",
+    "url": "role-of-mentors-in-career-discovery.html",
+    "category": "Career"
+  },
+  {
+    "title": "Is it possible to find your true purpose after the age of 50?",
+    "description": "Discover why finding your true purpose after 50 is entirely possible and how to use your life experience to create a meaningful and fulfilling second act.",
+    "url": "finding-purpose-after-50.html",
+    "category": "Growth"
+  },
+  {
+    "title": "How does InHerSight help women find the best companies to work for?",
+    "description": "Discover how InHerSight helps women find the best companies to work for using data-driven insights, anonymous reviews, and personalized career matching tools.",
+    "url": "how-inhersight-helps-women-find-best-companies.html",
+    "category": "Careers"
+  },
+  {
+    "title": "What are the top-rated companies for paid time off and salary satisfaction?",
+    "description": "Discover the top-rated companies for paid time off and salary satisfaction, featuring leaders like NVIDIA, HubSpot, and Microsoft for excellent employee benefits.",
+    "url": "top-rated-companies-pto-salary-satisfaction.html",
+    "category": "Employment"
+  },
+  {
+    "title": "How can I find job matches that align with my personal purpose?",
+    "description": "Discover how to find job matches that align with your personal purpose. Learn strategies for self-reflection and company research to build a meaningful career.",
+    "url": "finding-purpose-aligned-jobs.html",
+    "category": "Careers"
+  },
+  {
+    "title": "What are the best self-reflection exercises for career advancement?",
+    "description": "Boost your professional growth with these powerful self-reflection exercises. Learn how to identify strengths, values, and skills gaps for career advancement.",
+    "url": "best-self-reflection-exercises-career-advancement.html",
+    "category": "Career"
+  },
+  {
+    "title": "How does telecommuting impact the ability to find professional fulfillment?",
+    "description": "Explore how telecommuting affects professional fulfillment, including the benefits of autonomy and the challenges of isolation and blurred work-life boundaries.",
+    "url": "how-telecommuting-impacts-professional-fulfillment.html",
+    "category": "Career"
+  },
+  {
+    "title": "Where can I find a community of professional women for career networking?",
+    "description": "Discover the best professional networking communities for women, including Elpha, Lean In, and Ladies Get Paid, to boost your career and find peer support.",
+    "url": "professional-women-networking-communities.html",
+    "category": "Networking"
+  },
+  {
+    "title": "What are the most important review categories on InHerSight for women?",
+    "description": "Discover the 18 key review categories on InHerSight, from maternity leave to female leadership, designed to help women find the best workplaces for their needs.",
+    "url": "inhersight-review-categories-for-women.html",
+    "category": "Careers"
+  },
+  {
+    "title": "How do I negotiate for flexible work hours based on my values?",
+    "description": "Learn how to negotiate flexible work hours by aligning your professional goals with personal values. A step-by-step guide to achieving work-life balance.",
+    "url": "negotiate-flexible-work-hours-values.html",
+    "category": "Career"
+  },
+  {
+    "title": "What is the impact of wellness initiatives on employer responsiveness?",
+    "description": "Learn how wellness initiatives improve employer responsiveness by fostering trust, improving feedback loops, and reducing burnout for an agile workforce.",
+    "url": "impact-wellness-initiatives-employer-responsiveness.html",
+    "category": "HR"
+  },
+  {
+    "title": "How to identify core principles that guide professional decision-making?",
+    "description": "Learn how to identify and define the core principles that guide your professional decision-making for better leadership, integrity, and career success.",
+    "url": "identifying-core-professional-principles.html",
+    "category": "Professionalism"
+  },
+  {
+    "title": "What are the best ways to contribute to a sustainable global environment?",
+    "description": "Learn effective ways to contribute to a sustainable global environment, from reducing carbon footprints to supporting circular economies and green living.",
+    "url": "best-ways-to-contribute-to-global-sustainability.html",
+    "category": "Sustainability"
+  },
+  {
+    "title": "How can a career coach help in identifying natural talents?",
+    "description": "Discover how a career coach uses professional assessments, behavioral analysis, and pattern recognition to help you identify and leverage your natural talents.",
+    "url": "how-career-coaches-identify-natural-talents.html",
+    "category": "Coaching"
+  },
+  {
+    "title": "What are the benefits of joining a growing community of professional women?",
+    "description": "Explore the top benefits of joining a growing community of professional women, from mentorship and networking to increased confidence and career advancement.",
+    "url": "benefits-of-joining-professional-women-communities.html",
+    "category": "Career"
+  },
+  {
+    "title": "How do I use my unique life experiences to define my career goals?",
+    "description": "Learn how to leverage your unique life experiences to define meaningful career goals. Align your personal values and skills with your professional trajectory.",
+    "url": "unique-life-experiences-career-goals.html",
+    "category": "Career"
+  },
+  {
+    "title": "What defines a fulfilled life according to modern self-reflection experts?",
+    "description": "Explore the key pillars of a fulfilled life according to modern experts, including purpose, value alignment, growth, and the importance of deep connections.",
+    "url": "what-defines-a-fulfilled-life.html",
+    "category": "Psychology"
+  },
+  {
+    "title": "How can I find my purpose through volunteer work and new interests?",
+    "description": "Discover how to find your life's purpose by exploring volunteer opportunities and new hobbies. Learn practical steps for self-discovery and fulfillment today.",
+    "url": "how-to-find-purpose-volunteer-interests.html",
+    "category": "Growth"
+  },
+  {
+    "title": "What are the best strategies for returning to work after parenting?",
+    "description": "Learn effective strategies for returning to work after parenting, including resume tips, networking advice, upskilling, and managing work-life balance.",
+    "url": "strategies-returning-to-work-after-parenting.html",
+    "category": "Careers"
+  },
+  {
+    "title": "How to find companies rated highly by women for management opportunities?",
+    "description": "Discover top platforms and strategies to find companies rated highly by women for management roles, from specialized review sites to global DEI rankings.",
+    "url": "find-companies-rated-highly-by-women-management.html",
+    "category": "Careers"
+  },
+  {
+    "title": "What are the first steps to take when feeling lost in your career?",
+    "description": "Feeling stagnant or unsure about your professional path? Discover the essential first steps to navigate career uncertainty and find your true direction today.",
+    "url": "first-steps-feeling-lost-career.html",
+    "category": "Career"
+  }
+,
+  {
     "title": "When was the Portland Japanese Garden first founded as a society?",
     "description": "The Portland Japanese Garden was founded as the Japanese Garden Society of Oregon in 1963. Learn about its history, mission, and opening in Washington Park.",
     "url": "portland-japanese-garden-founding-society.html",
